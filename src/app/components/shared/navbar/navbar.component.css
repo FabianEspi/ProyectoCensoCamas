@@ -1,0 +1,18 @@
+.navbar {
+    margin-left: 4%;
+    width: 89%;
+    background-color: #264285;
+}
+
+.banner {
+    width: 70%;
+    margin-left: 5%;
+}
+
+.nav-item {
+    font-size: 150%;
+}
+
+.separation {
+    width: 10%;
+}
