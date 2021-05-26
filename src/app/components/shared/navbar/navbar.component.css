@@ -10,10 +10,35 @@
 }
 
 .nav-item {
-    font-size: 150%;
+    font-size: 120%;
 }
 
 .separation {
     width: 10%;
     color: #264285;
+}
+
+.link-ingreso {
+    margin-right: 10.5%;
+    margin-left: 10%;
+}
+
+.encabezado {
+    background-color: #264285;
+    margin-left: 9%;
+    width: 80%;
+    text-align: end;
+    font-size: 200%;
+}
+
+.iconos {
+    width: 50px;
+}
+
+i {
+    color: white;
+}
+
+h5 {
+    font-size: 100%;
 }
