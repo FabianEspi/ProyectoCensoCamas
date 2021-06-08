@@ -1,12 +1,16 @@
-<div class=" encabezado ">
+<div class="fixed-top">
+
+
+    <div class="encabezado fixed-top">
 
 
 
-    <i class="fab fa-facebook"> <h5>Siguenos:</h5> <div class="container iconos"> </div> </i>
-    <i class="fab fa-facebook"> <div class="container iconos"> </div> </i>
-    <i class="fab fa-instagram"> <div class="container iconos"> </div></i>
-    <i class="fab fa-twitter"> <div class="container iconos"> </div></i>
-    <i class="fab fa-youtube"> <div class="container iconos"> </div></i>
+        Siguenos en:
+        <a href="http://www.hus.gov.co/"> <i class="fas fa-h-square"> <div class="container iconos"> </div> </i> </a>
+        <a href="https://www.facebook.com/HUSantander/?ref=settings"> <i class="fab fa-facebook"> <div class="container iconos"> </div> </i> </a>
+        <a href="https://www.instagram.com/hospitalparalagente1/?hl=es-la"><i class="fab fa-instagram"> <div class="container iconos"> </div></i></a>
+        <a href="https://twitter.com/HUSantander"><i class="fab fa-twitter"> <div class="container iconos"> </div></i></a>
+        <a href="https://www.youtube.com/channel/UC6S87JGXWBDOas2G_9nDRYQ"><i class="fab fa-youtube"> <div class="container iconos"> </div></i> </a>
 
 
 
@@ -14,71 +18,60 @@
 
 
 
-</div>
+    </div>
 
-<img class="mt-3 banner" src="../../../../assets/img/Banner.jpg" alt="">
-
-
-<nav class="navbar navbar-center navbar-expand-md navbar-dark ">
-    <div class="container-fluid">
+    <img class="mt-7 banner fixed-top" src="../../../../assets/img/Banner.jpg">
 
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+
+
+    <nav class="navbar navbar-center navbar-expand-md navbar-dark scrolling-navbar fixed-top">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="#">
+                <img src="../../../../assets/img/icon.png" alt="" width="30" height="24" class="d-inline-block align-text-top"> Camas/Camilleros
+            </a>
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
+            <div class="container">
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            </div>
 
-                <div class="separation"> </div>
-                <li class="ml-5 nav-item">
-                    <a class="navbar-brand nav-link active" aria-current="page" href="#">Inicio</a>
-                </li>
+            <div class="collapse navbar-collapse " id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="ml-3 nav-item">
+                        <a class="navbar-brand nav-link" aria-current="page" [routerLink]="['home']" routerLinkActive="active">Inicio</a>
+                    </li>
 
-                <div class="separation"> </div>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Software de Camas
-                </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
 
-                <div class="separation"> </div>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Software de Camilleros
-                </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
-                <div class="separation"> </div>
-                <li class="nav-item dropdown">
-                    <a class="navbar-brand nav-link" href="#">Quienes somos</a>
-                </li>
-                <div class="separation"> </div>
-                <li class="nav-item ">
-                    <a class="navbar-brand nav-link" href="#">Contáctenos</a>
-                </li>
-            </ul>
+                    <li class="ml-3 nav-item">
+                        <a class="navbar-brand nav-link" aria-current="page" [routerLink]="['']" routerLinkActive="active">Software de Camas</a>
+                    </li>
+
+                    <li class="ml-3 nav-item">
+                        <a class="navbar-brand nav-link" aria-current="page" [routerLink]="['']" routerLinkActive="active">Software de Camilleros</a>
+                    </li>
+
+                    <li class="ml-3 nav-item">
+                        <a class="navbar-brand nav-link" href="#">Quienes somos</a>
+                    </li>
+
+                    <li class="ml-3 nav-item ">
+                        <a class="navbar-brand nav-link" href="#">Contáctenos</a>
+                    </li>
+                </ul>
+            </div>
         </div>
+    </nav>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end fixed-top">
+
+        <a class="btn btn-link link-ingreso"> Ingresar <i class="fas fa-angle-down"></i></a>
     </div>
-</nav>
 
-<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-
-    <a class="btn btn-link link-ingreso">Ingresar <i class="fas fa-angle-down"></i></a>
 </div>

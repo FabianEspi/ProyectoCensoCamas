@@ -2,11 +2,13 @@
     margin-left: 9%;
     width: 80%;
     background-color: #264285;
+    top: 149px;
 }
 
 .banner {
     width: 90%;
     margin-left: 5%;
+    top: 36px;
 }
 
 .nav-item {
@@ -19,7 +21,7 @@
 }
 
 .link-ingreso {
-    margin-right: 10.5%;
+    margin-right: 12.5%;
     margin-left: 10%;
 }
 
@@ -28,11 +30,12 @@
     margin-left: 9%;
     width: 80%;
     text-align: end;
-    font-size: 200%;
+    font-size: 150%;
+    color: white;
 }
 
 .iconos {
-    width: 50px;
+    width: 35px;
 }
 
 i {

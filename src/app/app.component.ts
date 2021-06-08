@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ICarouselItem } from './components/shared/carousel/Icarousel-item.metadata';
+import { CAROUSEL_DATA_ITEMS } from './data/constants/carousel.const';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'CamasProyecto';
+
+ 
+
+ 
 }

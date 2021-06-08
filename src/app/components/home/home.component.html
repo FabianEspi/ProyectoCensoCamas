@@ -1,29 +1,76 @@
-<div class="carousel center">
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+<div class="home">
+
+    <app-carousel [items]="carouselData">
+
+    </app-carousel>
+
+</div>
+
+<div class="container mt-3 text-center animate__animated animate__backInLeft">
+
+    <h1>"Software Especializado para control de camas y camilleros"</h1>
+</div>
+
+
+<div class="container  mt-5">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+            <div class="card h-100">
+                <i class="fas fa-procedures"></i>
+                <div class="card-body">
+                    <h4 class="card-title">Software para censo de camas</h4>
+                    <p class="card-text">Sistema encargado para control, asignacion y censo de camas en el Hospital Universitario de Santander</p>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-secondary"> Descargar Manual</button>
+                </div>
+            </div>
         </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="../../../assets/img/p1.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="../../../assets/img/images2.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="../../../assets/img/6733.jpg" class="d-block w-100" alt="...">
+        <div class="col">
+            <div class="card h-100">
+                <i class="fas fa-luggage-cart"></i>
+                <div class="card-body">
+                    <h4 class="card-title">Software para gestión de camilleros</h4>
+                    <p class="card-text">Sistema encargado para asignacion de traslados de pacientes para camilleros en el Hospital universitario de Santander</p>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-secondary" href="../../assets/pdfs/Resume.pdf" download="Reporte2Mayo2010"> Descargar Manual</button>
+                </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+
+    </div>
+
+</div>
+
+<!-- footer -->
+
+<div class="footer">
+
+
+    <div class="container contenido">
+
+
+
+        <div class="row">
+            <div class="col">
+                ESE HUS
+                <br><br> HOSPITAL UNIVERSITARIO DE SANTANDER
+                <br><br>Pagina Oficial:
+                <br>
+
+                <button class="btn btn-outline-primary "> Ir</button>
+            </div>
+            <div class="col">
+                otros
+            </div>
+            <div class="col">
+                otros
+            </div>
+        </div>
+
+        <hr> 2020 - ESE HUS @Derechos Reservados
+
     </div>
 
 </div>
