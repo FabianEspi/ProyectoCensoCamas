@@ -1,64 +1,52 @@
 <body>
 
-    <div class="container total">
+
+    <div class="container ">
+
+        <a [routerLink]="['/inicio/home']"><i class="fas fa-arrow-left mt-5"  ></i></a>
 
 
+    </div>
 
+    
+    <div class="login-box">
 
+    
+    <img class ="avatar" src="../../../../assets/img/icon.png" alt="Logo">
+        <h1>Ingrese Aqui</h1>
 
+        <form #loginForm="ngForm" class="login100-form validate-form flex-sb flex-w">
 
+            <label for = "username"> Usuario</label>
 
-
-
-
-        <div class="container prueba">
-        
-        <div class="limiter animated_fadeInLeft">
-        
-            <div class="container-login100 ">
-                <div class="wrap-login100 p-t-50 p-b-90">
-        
-                    <form #loginForm="ngForm" class="login100-form validate-form flex-sb flex-w">
-        
-        
-                    <span class="login100-form-title p-b-51">
-                        LOGIN
-                    </span>
-        
-                     <!-- <span class="text-danger">El correo es obligatorio</span> -->
-                     <div class="wrap-input100 m-b-16">
-                        <input class="input100" [(ngModel)]="usuario.email" type="email" required email name="email" placeholder="email">
-        
-                        <span class="focus-input100"></span>
-                        
-                    </div>
-        
-        
-                    <!-- <span class="text-danger">La contraseña debe de ser más de 6 letras</span> -->
-                    <div class="wrap-input100 m-b-16" data-validate="Password is required">
-                        <input [(ngModel)]="usuario.password" required class="input100" type="password" name="password" placeholder="Password">
-                        <span class="focus-input100"></span>
-                    </div>
-        
-                    
-                    <div class="container-login100-form-btn m-t-17">
-                        <button  class="login100-form-btn" type="submit">
-                            Ingresar
-                        </button>
-                    </div>
-        
-        
-                    </form>
-                </div>
-        
-        
+            <div class="wrap-input100 m-b-16">
+                <input class="input100" [(ngModel)]="usuario.email" type="email" required email name="email" placeholder="email">
+                <span class="focus-input100"></span>
             </div>
-        </div>
-        
-        </div>
-        
-        </div>
 
+
+            <label for = "password"> Password</label>
+
+            <div class="wrap-input100 m-b-16" data-validate="Password is required">
+                <input [(ngModel)]="usuario.password" required class="input100" type="password" name="password" placeholder="Password">
+                <span class="focus-input100"></span>
+            </div>
+            
+
+            <br>
+            <div class="container-login100-form-btn m-t-17">
+                <button  class="login100-form-btn" type="submit">
+                    Ingresar
+                </button>
+            </div>
+        </form>
+
+        
+
+    </div>
+
+
+ 
 
 </body>
 
