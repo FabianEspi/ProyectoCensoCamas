@@ -3,6 +3,7 @@ import { HomeComponent } from './components/home/home.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 
 import { LoginUsuarioComponent } from './components/user/login-usuario/login-usuario.component';
+import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
 
 const APP_ROUTES: Routes = [
 
@@ -10,7 +11,10 @@ const APP_ROUTES: Routes = [
     { path: 'login', component: LoginUsuarioComponent },
     { path: 'inicio', component: InicioComponent, children:[
 
-        { path: 'home', component: HomeComponent }
+        { path: 'home', component: HomeComponent },
+        { path: 'quienesSomos', component: QuienesSomosComponent }
+    
+
 
 
     ] },

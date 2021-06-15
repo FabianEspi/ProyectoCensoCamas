@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LoginUsuarioComponent } from './components/user/login-usuario/login-usuario.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
 
 
 
@@ -23,6 +24,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
     CarouselComponent,
     LoginUsuarioComponent,
     InicioComponent,
+    QuienesSomosComponent,
     ],
   imports: [
     BrowserModule,
