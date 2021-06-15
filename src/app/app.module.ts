@@ -9,8 +9,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './components/shared/carousel/carousel.component';
 import { APP_ROUTING } from './app.routes';
 import { CommonModule } from '@angular/common';
-import { PruebaComponent } from './components/prueba/prueba.component';
 import { FormsModule } from '@angular/forms';
+import { LoginUsuarioComponent } from './components/user/login-usuario/login-usuario.component';
+import { InicioComponent } from './components/inicio/inicio.component';
+
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     HomeComponent,
     CarouselComponent,
-    PruebaComponent,
+    LoginUsuarioComponent,
+    InicioComponent,
     ],
   imports: [
     BrowserModule,

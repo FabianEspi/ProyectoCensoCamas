@@ -58,20 +58,20 @@
                     </li>
 
                     <li class="ml-3 nav-item">
-                        <a class="navbar-brand nav-link" href="#">Quienes somos</a>
+                        <a class="navbar-brand nav-link" [routerLink]="['']" routerLinkActive="active">Quienes somos</a>
                     </li>
 
                     <li class="ml-3 nav-item ">
-                        <a class="navbar-brand nav-link" href="#">Contáctenos</a>
+                        <a class="navbar-brand nav-link" [routerLink]="['']" routerLinkActive="active">Contáctenos</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="d-grid gap-2 d-md-flex justify-content-md-end fixed-top">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end fixed-top ingreso">
 
-        <a class="btn btn-link link-ingreso"> Ingresar <i class="fas fa-angle-down"></i></a>
+        <a class="btn btn-link link-ingreso" [routerLink]="['/login']"> Ingresar <i class="fas fa-angle-down icon-ingresar"></i></a>
     </div>
 
 </div>

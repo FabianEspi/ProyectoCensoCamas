@@ -29,7 +29,7 @@
 }
 
 i {
-    font-size: 150px;
+    font-size: 125px;
     color: #264285;
 }
 
@@ -39,4 +39,16 @@ button {
 
 .card-text {
     text-align: justify;
+}
+
+.cuerpo-home{
+
+    
+    text-align: center;
+
+}
+
+p{
+
+    font-size: 18px;
 }

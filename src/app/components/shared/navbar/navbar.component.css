@@ -7,6 +7,7 @@
 
 .banner {
     width: 90%;
+    height: 120px;
     margin-left: 5%;
     top: 36px;
 }
@@ -40,8 +41,17 @@
 
 i {
     color: white;
+    font-size: 25px;
 }
 
 h5 {
     font-size: 100%;
+}
+
+.ingreso {
+    margin-top: 200px;
+}
+
+.icon-ingresar {
+    color: #264285;
 }
