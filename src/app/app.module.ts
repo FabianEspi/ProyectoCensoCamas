@@ -12,7 +12,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LoginUsuarioComponent } from './components/user/login-usuario/login-usuario.component';
 import { InicioComponent } from './components/inicio/inicio.component';
-import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
+import { QuienesSomosComponent } from './components/quienes-somos/quienes-somos.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
+
 
 
 
@@ -25,6 +27,7 @@ import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
     LoginUsuarioComponent,
     InicioComponent,
     QuienesSomosComponent,
+    FooterComponent,
     ],
   imports: [
     BrowserModule,

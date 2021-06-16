@@ -1,9 +1,10 @@
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { QuienesSomosComponent } from './components/quienes-somos/quienes-somos.component';
 
 import { LoginUsuarioComponent } from './components/user/login-usuario/login-usuario.component';
-import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
+
 
 const APP_ROUTES: Routes = [
 
