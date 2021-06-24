@@ -4,6 +4,10 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { QuienesSomosComponent } from './components/quienes-somos/quienes-somos.component';
 
 import { LoginUsuarioComponent } from './components/user/login-usuario/login-usuario.component';
+import { CamasComponent } from './components/camas/camas/camas.component';
+import { TrasladoComponent } from './components/camas/traslado/traslado.component';
+import { EgresoComponent } from './components/camas/egreso/egreso.component';
+import { CensoComponent } from './components/camas/censo/censo.component';
 
 
 const APP_ROUTES: Routes = [
@@ -14,6 +18,16 @@ const APP_ROUTES: Routes = [
 
         { path: 'home', component: HomeComponent },
         { path: 'quienesSomos', component: QuienesSomosComponent }
+    
+
+
+
+    ] },
+    { path: 'camas', component: CamasComponent, children:[
+
+        { path: 'traslado', component: TrasladoComponent },
+        { path: 'egreso', component: EgresoComponent},
+        { path: 'censo', component: CensoComponent }
     
 
 
