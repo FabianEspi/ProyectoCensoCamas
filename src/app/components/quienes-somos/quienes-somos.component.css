@@ -1,36 +1,25 @@
-.wrapper {
-    
-    
-    
-    
-}
-
-.wrapper h1{
-
+.wrapper h1 {
     text-align: center;
 }
 
-.wrapper p{
-
+.wrapper p {
     margin-top: 30px;
     font-family: initial;
     font-size: 20px;
     text-align: justify;
 }
 
-
-.wrapper .imagen{ 
-
-    margin-top:40px;
-    width:100%;
-
+.wrapper .imagen {
+    margin-top: 40px;
+    width: 100%;
 }
 
-.wrapper .logo{ 
-
+.wrapper .logo {
     width: 500px;
-    margin-top:20px;
-    width:80%;
-    
+    margin-top: 20px;
+    width: 80%;
+}
 
+.wrapper .container {
+    width: 80%;
 }

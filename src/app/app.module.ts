@@ -14,6 +14,10 @@ import { LoginUsuarioComponent } from './components/user/login-usuario/login-usu
 import { InicioComponent } from './components/inicio/inicio.component';
 import { QuienesSomosComponent } from './components/quienes-somos/quienes-somos.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
+import { TrasladoComponent } from './components/camas/traslado/traslado.component';
+import { EgresoComponent } from './components/camas/egreso/egreso.component';
+import { CensoComponent } from './components/camas/censo/censo.component';
+import { CamasComponent } from './components/camas/camas/camas.component';
 
 
 
@@ -28,6 +32,10 @@ import { FooterComponent } from './components/shared/footer/footer.component';
     InicioComponent,
     QuienesSomosComponent,
     FooterComponent,
+    TrasladoComponent,
+    EgresoComponent,
+    CensoComponent,
+    CamasComponent,
     ],
   imports: [
     BrowserModule,

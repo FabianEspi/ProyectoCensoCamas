@@ -12,6 +12,7 @@
     overflow: hidden;
     margin: auto;
     transition: all 0.25s;
+    width: 80%;
 }
 
 .card:hover {
@@ -41,14 +42,16 @@ button {
     text-align: justify;
 }
 
-.cuerpo-home{
-
-    
+.cuerpo-home {
     text-align: center;
-
 }
 
-p{
-
+p {
     font-size: 18px;
+}
+
+.card-text {
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 30px;
 }

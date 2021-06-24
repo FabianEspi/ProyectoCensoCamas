@@ -2,9 +2,18 @@
     background-color: #264285;
     color: white;
     margin-left: 9%;
-    margin-right:11%;
+    margin-right: 11%;
+    font-family: 'Poppins';
 }
 
 .contenido {
     margin-top: 5%;
+}
+
+.row {
+    margin-top: 20px;
+}
+
+.btn {
+    color: white;
 }
