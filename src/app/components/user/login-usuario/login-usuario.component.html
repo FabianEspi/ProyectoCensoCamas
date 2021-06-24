@@ -8,45 +8,48 @@
 
     </div>
 
-    
-    <div class="login-box ">
 
-    
-    <img class ="avatar" src="../../../../assets/img/icon.png" alt="Logo">
+    <div class="login-box animate__animated animate__fadeIn ">
+
+
+
+        <img class="avatar" src="../../../../assets/img/icon.png" alt="Logo">
         <h1>Login</h1>
 
-        <form #loginForm="ngForm" class="login100-form validate-form flex-sb flex-w">
+        <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm" class="login100-form validate-form flex-sb flex-w">
 
-            <label for = "username"> Usuario</label>
+            <label for="username"> Correo</label>
 
             <div class="wrap-input100 m-b-16">
                 <input class="input100" [(ngModel)]="usuario.email" type="email" required email name="email" placeholder="email">
-                <span class="focus-input100"></span>
+
             </div>
 
+            <b><span  *ngIf="loginForm.submitted && loginForm.controls['email'].errors" class="text-danger animate__animated animate__fadeIn"> El email es obligatorio</span></b>
 
-            <label for = "password"> Password</label>
+
+            <label for="password" class="mt-2"> Password</label>
 
             <div class="wrap-input100 m-b-16" data-validate="Password is required">
                 <input [(ngModel)]="usuario.password" required class="input100" type="password" name="password" placeholder="Password">
-                <span class="focus-input100"></span>
             </div>
-            
+
+            <b><span  *ngIf="loginForm.submitted && loginForm.controls['password'].errors" class="text-danger animate__animated animate__fadeIn"> La contraseña es obligatoria</span></b>
+
 
             <br>
             <div class="container-login100-form-btn m-t-17">
-                <button  class="login100-form-btn" type="submit">
+                <button class="login100-form-btn" type="submit">
                     Ingresar
                 </button>
             </div>
         </form>
 
-        
+
 
     </div>
 
 
- 
+
 
 </body>
-

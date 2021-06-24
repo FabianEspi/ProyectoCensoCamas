@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-
+import{HttpClientModule} from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
@@ -42,7 +42,9 @@ import { CamasComponent } from './components/camas/camas/camas.component';
     NgbModule,
     CommonModule,
     FormsModule,
-    APP_ROUTING
+    HttpClientModule,
+    APP_ROUTING,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
