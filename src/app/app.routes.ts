@@ -11,6 +11,7 @@ import { CensoComponent } from './components/camas/censo/censo.component';
 import { InicioCamasComponent } from './components/camas/inicio/inicio.component';
 
 
+
 const APP_ROUTES: Routes = [
 
    
@@ -36,7 +37,7 @@ const APP_ROUTES: Routes = [
 
     ] },
 
-    { path: '**', pathMatch: 'full', redirectTo: 'home' }
+    { path: '**', pathMatch: 'full', redirectTo: 'inicio/home' }
 
 
 

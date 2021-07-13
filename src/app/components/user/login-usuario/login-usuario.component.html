@@ -16,12 +16,12 @@
         <img class="avatar" src="../../../../assets/img/icon.png" alt="Logo">
         <h1>Login</h1>
 
-        <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm" class="login100-form validate-form flex-sb flex-w">
+        <form (ngSubmit)="login(loginForm)" #loginForm="ngForm" class="login100-form validate-form flex-sb flex-w">
 
             <label for="username"> Correo</label>
 
             <div class="wrap-input100 m-b-16">
-                <input class="input100" [(ngModel)]="usuario.email" type="email" required email name="email" placeholder="email">
+                <input class="input100" [(ngModel)]="usuario.Username" type="text" required name="email" placeholder="email">
 
             </div>
 
@@ -31,7 +31,7 @@
             <label for="password" class="mt-2"> Password</label>
 
             <div class="wrap-input100 m-b-16" data-validate="Password is required">
-                <input [(ngModel)]="usuario.password" required class="input100" type="password" name="password" placeholder="Password">
+                <input [(ngModel)]="usuario.Contrasena" required class="input100" type="password" name="password" placeholder="Password">
             </div>
 
             <b><span  *ngIf="loginForm.submitted && loginForm.controls['password'].errors" class="text-danger animate__animated animate__fadeIn"> La contraseña es obligatoria</span></b>

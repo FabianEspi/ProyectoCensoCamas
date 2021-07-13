@@ -27,11 +27,11 @@
 }
 
 .navbar-expand-md .navbar-nav .nav-link:hover {
-    border-top: 4px solid white;
+    border-bottom: 4px solid white;
 }
 
 .navbar-expand-md .navbar-nav .nav-link:active {
-    border-top: 4px solid white;
+    border-bottom: 4px solid white;
     color: white;
 }
 

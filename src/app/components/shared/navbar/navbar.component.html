@@ -50,11 +50,11 @@
 
 
                     <li class="nav-item" routerLinkActive="active">
-                        <a class="navbar-brand nav-link disabled" aria-disabled="true" aria-current="page" [routerLink]="['1']">Software de Camas</a>
+                        <a class="navbar-brand nav-link" [ngClass]="estaAutenticado ? '': 'disabled' " aria-disabled="true" aria-current="page" [routerLink]="['1']">Software de Camas</a>
                     </li>
 
                     <li class=" nav-item" routerLinkActive="active">
-                        <a class="navbar-brand nav-link disabled" aria-disabled="true" aria-current="page" [routerLink]="['2']">Software de Camilleros</a>
+                        <a class="navbar-brand nav-link" [ngClass]="estaAutenticado ? '': 'disabled' " aria-disabled="true" aria-current="page" [routerLink]="['2']">Software de Camilleros</a>
                     </li>
 
                     <li class=" nav-item" routerLinkActive="active">
@@ -72,6 +72,9 @@
 
 
 </div>
+
+
+
 
 <div class="d-grid gap-2 d-md-flex justify-content-md-end fixed-top ingreso">
 
