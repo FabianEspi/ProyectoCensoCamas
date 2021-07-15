@@ -75,6 +75,7 @@ i {
 .cuerpo-inicial {
     box-shadow: 0 12px 16px rgba(0, 0, 0, 0.05);
     border-radius: 15px;
+    height: 450px;
 }
 
 .body-inicial {
@@ -83,7 +84,8 @@ i {
 
 .cuerpo-inicial img {
     width: 80%;
-    height: 80%
+    height: 80%;
+    margin-top: 15px;
 }
 
 .cuerpo-inicial p {
@@ -109,6 +111,16 @@ i {
     cursor: pointer;
 }
 
+.boton-camas a,
+a:link,
+a:visited {
+    color: black;
+}
+
+.boton-camas a:hover {
+    color: white;
+}
+
 .wrapper-services .container .row .col h5 a:link,
 a:visited,
 a:hover {
@@ -128,4 +140,8 @@ a:hover {
 
 .wrapper-services .container .col h5 {
     margin-top: 5px;
+}
+
+.img1 {
+    height: 350px;
 }
