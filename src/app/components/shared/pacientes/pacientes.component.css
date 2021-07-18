@@ -1,0 +1,28 @@
+.filter {
+    width: 200px;
+    color: #264285;
+}
+
+.filter-label {
+    width: 300px;
+}
+
+thead {
+    background-color: #264285;
+    color: white;
+    font-weight: bolder;
+}
+
+table {
+    border: 2px solid #264285;
+    font-size: 20px;
+}
+
+table tbody {
+    border: 2px solid #264285;
+}
+
+table tbody i {
+    color: #264285;
+    font-size: 20px;
+}

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthServiceService } from 'src/app/services/auth-service.service';
+
 import { UsuarioModel } from '../../models/usuario.models';
 
 @Component({
@@ -15,7 +15,7 @@ export class LoginUsuarioComponent implements OnInit {
 
   public estaAutenticado:boolean;
 
-  constructor(private router: Router, private auth: AuthServiceService) { 
+  constructor(private router: Router) { 
 
 
     this.usuario = new UsuarioModel();

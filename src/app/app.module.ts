@@ -19,6 +19,7 @@ import { EgresoComponent } from './components/camas/egreso/egreso.component';
 import { CensoComponent } from './components/camas/censo/censo.component';
 import { CamasComponent } from './components/camas/camas/camas.component';
 import { InicioCamasComponent } from './components/camas/inicio/inicio.component';
+import { PacientesComponent } from './components/shared/pacientes/pacientes.component';
 
 
 
@@ -38,7 +39,8 @@ import { InicioCamasComponent } from './components/camas/inicio/inicio.component
     EgresoComponent,
     CensoComponent,
     CamasComponent,
-    InicioCamasComponent
+    InicioCamasComponent,
+    PacientesComponent
     ],
   imports: [
     BrowserModule,
