@@ -6,19 +6,23 @@
     <div class="filter">
 
         <h6 class="mt-5"> Filtro de busqueda:</h6>
-        <select class="form-select " aria-label=".form-select-lg example">
+        <select #miSelect class="form-select " aria-label=".form-select-lg example ">
             
-            <option selected value="identificacion">No. Identificacion</option>
-            <option  value="ingreso">No. Ingreso</option>
-            <option value="nombre">Nombre</option>
+            
+            <option  value="identificacion " >No. Identificacion</option>
+            <option  value="ingreso ">No. Ingreso</option>
+            <option value="nombre ">Nombre</option>
             
           </select>
 
-        <div class="filter-label mt-5">
+        <div class="filter-label mt-5 ">
 
-            <h6>Por favor Ingrese el <b>No de identificación</b> </h6>
-            <input type="text" class="form-control" name="filterPost" placeholder="Buscar">
+            <h6>Por favor Ingrese su informacion
+            </h6>
+            <input type="text " class="form-control " name="filterPost " placeholder="Buscar ">
         </div>
+
+
 
 
 
@@ -27,16 +31,16 @@
 
 
 
-    <table class="table  mt-5 text-center">
+    <table class="table mt-5 text-center ">
         <thead>
 
             <tr>
-                <th scope="col">No. Cedula</th>
-                <th scope="col">No. Ingreso</th>
-                <th scope="col">Nombres</th>
-                <th scope="col">Apellidos</th>
-                <th scope="col">Fecha de Ingreso</th>
-                <th scope="col">Accion</th>
+                <th scope="col ">No. Cedula</th>
+                <th scope="col ">No. Ingreso</th>
+                <th scope="col ">Nombres</th>
+                <th scope="col ">Apellidos</th>
+                <th scope="col ">Fecha de Ingreso</th>
+                <th scope="col ">Accion</th>
             </tr>
         </thead>
         <tbody>
@@ -46,7 +50,7 @@
                 <td>Fabian Alberto</td>
                 <td>Espitia Muñoz </td>
                 <td>11/07/2021</td>
-                <td><i class="fas fa-user-check"></i></td>
+                <td><i class="fas fa-user-check "></i></td>
             </tr>
 
             <tr>
@@ -55,13 +59,61 @@
                 <td>Fabian Alberto</td>
                 <td>Espitia Muñoz </td>
                 <td>11/07/2021</td>
-                <td><i class="fas fa-user-check"></i></td>
+                <td><i class="fas fa-user-check "></i></td>
             </tr>
 
 
         </tbody>
 
     </table>
+
+
+
+    <div class="alert alert-warning text-center mt-3 ">
+
+        <h4 class="alert-heading ">No se encontraron registros</h4>
+
+        <p>
+
+            <i class="fa fa-exclamation fa-2x mt-3 "></i>
+        </p>
+
+
+
+
+    </div>
+
+    <div class="container ">
+
+
+
+
+
+        <div class="alert alert-info text-center mt-0 ">
+
+            <h4 class="alert-heading ">Cargando</h4>
+
+            <p>
+
+                <i class="fa fa-sync-alt fa-spin fa-2x "></i>
+            </p>
+
+            <p class="mb-0 ">
+
+                Espere por Favor
+
+            </p>
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+
 
 
 

@@ -7,11 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PacientesComponent implements OnInit {
 
-  valor:String;
+
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
+ 
 
 }
