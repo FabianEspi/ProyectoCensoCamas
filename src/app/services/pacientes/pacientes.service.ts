@@ -13,18 +13,33 @@ export class PacientesService {
 
   
 
+  findPacientByIngreso(ingreso:String ) {
 
-  findPacientByDocument(documento:String ) {
-
-    this.http.get(`${this.url}/encontrar/documento/${documento}`)
+    this.http.get(`${this.url}/encontrar/ingreso/${ingreso}`)
 
   }
 
-  findPacientById(nombre:String ) {
+  findPacientByDocument(documento:String ) {
+
+    this.http.get(`${this.url}/encontrar/ingreso/${documento}`)
+
+  }
+
+  findPacientByName(nombre:String ) {
 
     this.http.get(`${this.url}/encontrar/documento/${nombre}`)
 
   }
+
+  public actualizarCama(paciente:string, cama:string){
+
+    
+
+
+  }
+
+
+
 
 
 

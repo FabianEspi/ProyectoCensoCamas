@@ -1,95 +1,72 @@
 <div class="wrapper">
 
-    <h3>SELECCIÓN DE PACIENTES</h3>
+    <h3 *ngIf="!pacienteSeleccionado">SELECCIÓN DE PACIENTES</h3>
 
 
-    <div class="filter">
+
+
+    <div class="filter" *ngIf="!pacienteSeleccionado">
 
         <h6 class="mt-5"> Filtro de busqueda:</h6>
-        <select #miSelect class="form-select " aria-label=".form-select-lg example ">
+        <select #opcion class="form-select " aria-label=".form-select-lg example" (click)="optionSelectedName(opcion.value)" (click)="optionSelectedDocument(opcion.value)" (click)="optionSelectedIngreso(opcion.value)">
             
             
-            <option  value="identificacion " >No. Identificacion</option>
-            <option  value="ingreso ">No. Ingreso</option>
-            <option value="nombre ">Nombre</option>
+            <option value="identificacion">No. Identificacion</option>
+            <option value="ingreso">No. Ingreso</option>
+            <option value="nombre">Nombre</option>
             
           </select>
 
-        <div class="filter-label mt-5 ">
+        <div class="filter-label mt-5" *ngIf="valorName">
 
             <h6>Por favor Ingrese su informacion
             </h6>
-            <input type="text " class="form-control " name="filterPost " placeholder="Buscar ">
+            <input #termino type="text" (keyup.enter)="findPacientByName(termino.value)" class="form-control" placeholder="Buscar Paciente por Nombre">
+        </div>
+
+        <div class="filter-label mt-5 " *ngIf="valorIngreso">
+
+            <h6>Por favor Ingrese su informacion
+            </h6>
+            <input #termino type="text" (keyup.enter)="findPacientByIngreso(termino.value)" class="form-control" placeholder="Buscar Paciente por No de Ingreso">
+        </div>
+
+        <div class="filter-label mt-5 " *ngIf="valorDocumento">
+
+            <h6>Por favor Ingrese su informacion
+            </h6>
+            <input #termino type="text" (keyup.enter)="findPacientByDocument(termino.value)" class="form-control" placeholder="Buscar Paciente por No de Identificacion">
         </div>
 
 
 
+    </div>
 
+
+    <div class="container" *ngIf="noData">
+
+        <div class="alert alert-warning text-center mt-3 ">
+
+            <h4 class="alert-heading ">No se encontraron registros</h4>
+
+            <p>
+
+                <i class="fa fa-exclamation fa-2x mt-3 "></i>
+            </p>
+
+
+
+
+        </div>
 
     </div>
 
 
-
-
-    <table class="table mt-5 text-center ">
-        <thead>
-
-            <tr>
-                <th scope="col ">No. Cedula</th>
-                <th scope="col ">No. Ingreso</th>
-                <th scope="col ">Nombres</th>
-                <th scope="col ">Apellidos</th>
-                <th scope="col ">Fecha de Ingreso</th>
-                <th scope="col ">Accion</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>12121212</th>
-                <td>432423</td>
-                <td>Fabian Alberto</td>
-                <td>Espitia Muñoz </td>
-                <td>11/07/2021</td>
-                <td><i class="fas fa-user-check "></i></td>
-            </tr>
-
-            <tr>
-                <th>12121212</th>
-                <td>432423</td>
-                <td>Fabian Alberto</td>
-                <td>Espitia Muñoz </td>
-                <td>11/07/2021</td>
-                <td><i class="fas fa-user-check "></i></td>
-            </tr>
-
-
-        </tbody>
-
-    </table>
-
-
-
-    <div class="alert alert-warning text-center mt-3 ">
-
-        <h4 class="alert-heading ">No se encontraron registros</h4>
-
-        <p>
-
-            <i class="fa fa-exclamation fa-2x mt-3 "></i>
-        </p>
-
-
-
-
-    </div>
-
-    <div class="container ">
-
-
-
-
+    <div class="container mt-5" *ngIf="buscando">
 
         <div class="alert alert-info text-center mt-0 ">
+
+
 
             <h4 class="alert-heading ">Cargando</h4>
 
@@ -108,6 +85,92 @@
         </div>
 
     </div>
+
+
+
+    <table class="table mt-5 text-center" *ngIf="!pacienteSeleccionado">
+        <thead>
+
+            <tr>
+                <th scope="col ">No. Cedula</th>
+                <th scope="col ">No. Ingreso</th>
+                <th scope="col ">Nombres</th>
+                <th scope="col ">Apellidos</th>
+                <th scope="col ">Fecha de Ingreso</th>
+                <th scope="col ">Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>12121212</th>
+                <td>432423</td>
+                <td>Fabian Alberto</td>
+                <td>Espitia Muñoz </td>
+                <td>11/07/2021</td>
+                <td>
+                    <a class="button" (click)="seleccionarPaciente('12121212','23')"> <i class="fas fa-user-check icon-button"></i> </a>
+                </td>
+            </tr>
+
+            <tr>
+                <th>12121212</th>
+                <td>432423</td>
+                <td>Fabian Alberto</td>
+                <td>Espitia Muñoz </td>
+                <td>11/07/2021</td>
+                <td><i class="fas fa-user-check "></i></td>
+            </tr>
+
+
+        </tbody>
+
+    </table>
+
+
+
+    <!-- PACIENTE SELECCIONADO -->
+
+
+
+
+    <div class="mt-5" *ngIf="pacienteSeleccionado">
+        <h4>PACIENTE SELECCIONADO: <i class="fas fa-user-check"></i></h4>
+
+        <table class="table mt-5 text-center">
+            <thead>
+
+                <tr>
+                    <th scope="col ">No. Cedula</th>
+                    <th scope="col ">No. Ingreso</th>
+                    <th scope="col ">Nombres</th>
+                    <th scope="col ">Apellidos</th>
+                    <th scope="col ">Fecha de Ingreso</th>
+                    <th scope="col ">Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>12121212</th>
+                    <td>432423</td>
+                    <td>Fabian Alberto</td>
+                    <td>Espitia Muñoz </td>
+                    <td>11/07/2021</td>
+                    <td>
+                        <a style="cursor: pointer;" class="button" (click)="seleccionarPaciente('12121212','23')"> <i class="fas fa-times"></i> </a>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+
+
+
+
+
+    </div>
+
 
 
 

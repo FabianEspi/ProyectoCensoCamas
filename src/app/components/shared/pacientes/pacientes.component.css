@@ -26,3 +26,7 @@ table tbody i {
     color: #264285;
     font-size: 20px;
 }
+
+.icon-button {
+    cursor: pointer;
+}

@@ -57,12 +57,12 @@ hr {
 }
 
 .img-logos {
-    height: 150px;
+    height: 100px;
     filter: grayscale(1)
 }
 
 .img-logos:hover {
-    height: 150px;
+    height: 105px;
     filter: grayscale(0)
 }
 

@@ -3,18 +3,13 @@
     color: white;
     margin-left: 9%;
     margin-right: 11%;
-    font-family: 'Poppins';
     position: relative;
-}
-
-.contenido {
-    margin-top: 5%;
 }
 
 .row {
     margin-top: 20px;
 }
 
-.btn {
-    color: white;
+.line_title {
+    width: 50px;
 }

@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+.navbar {
+    margin-left: 9%;
+    width: 80%;
+    background-color: #264285;
+    top: 149px;
+}
+
+.navbar .navbar-brand a {
+    padding: 1rem 0;
+    display: block;
+    text-decoration: none;
+}
+
+.navbar-toggler {
+    border: none;
+    padding: 10px 6px;
+    outline: none;
+}
+
+.navbar-toggler span {
+    display: block;
+}
+
+.navbar-expand-md .navbar-nav .nav-link {
+    position: relative;
+}
+
+.navbar-expand-md .navbar-nav .nav-link:hover {
+    border-bottom: 4px solid white;
+}
+
+.navbar-expand-md .navbar-nav .nav-link:active {
+    border-bottom: 4px solid white;
+    color: white;
+}
+
+.banner {
+    width: 90%;
+    height: 120px;
+    margin-left: 5%;
+    top: 36px;
+}
+
+.nav-item {
+    font-size: 120%;
+}
+
+.separation {
+    width: 10%;
+    color: #264285;
+}
+
+.link-ingreso {
+    margin-right: 12.5%;
+    margin-left: 10%;
+}
+
+a {
+    font-family: 'Poppins';
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.encabezado {
+    background-color: #264285;
+    margin-left: 9%;
+    width: 80%;
+    text-align: end;
+    font-size: 150%;
+    color: white;
+    font-family: 'Poppins';
+}
+
+.iconos {
+    width: 35px;
+}
+
+i {
+    color: white;
+    font-size: 25px;
+}
+
+.encabezado i:hover {
+    color: lightgray;
+}
+
+h5 {
+    font-size: 100%;
+}
+
+.ingreso {
+    margin-top: 200px;
+}
+
+.icon-ingresar {
+    color: #264285;
+}
+
+ul {
+    list-style-type: none;
+}

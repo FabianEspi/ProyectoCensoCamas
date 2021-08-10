@@ -9,7 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './components/shared/carousel/carousel.component';
 import { APP_ROUTING } from './app.routes';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginUsuarioComponent } from './components/user/login-usuario/login-usuario.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { QuienesSomosComponent } from './components/quienes-somos/quienes-somos.component';
@@ -20,6 +20,8 @@ import { CensoComponent } from './components/camas/censo/censo.component';
 import { CamasComponent } from './components/camas/camas/camas.component';
 import { InicioCamasComponent } from './components/camas/inicio/inicio.component';
 import { PacientesComponent } from './components/shared/pacientes/pacientes.component';
+import { NavbarLoginComponent } from './components/shared/navbar-login/navbar-login.component';
+
 
 
 
@@ -40,7 +42,8 @@ import { PacientesComponent } from './components/shared/pacientes/pacientes.comp
     CensoComponent,
     CamasComponent,
     InicioCamasComponent,
-    PacientesComponent
+    PacientesComponent,
+    NavbarLoginComponent
     ],
   imports: [
     BrowserModule,
@@ -49,6 +52,7 @@ import { PacientesComponent } from './components/shared/pacientes/pacientes.comp
     FormsModule,
     HttpClientModule,
     APP_ROUTING,
+    ReactiveFormsModule
   
   ],
   providers: [],
