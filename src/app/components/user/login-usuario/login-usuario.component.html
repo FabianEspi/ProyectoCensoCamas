@@ -18,27 +18,27 @@
 
         <form (ngSubmit)="login(loginForm)" #loginForm="ngForm" class="login100-form validate-form flex-sb flex-w">
 
-            <label for="username"> Correo</label>
+            <label for="username"> Usuario</label>
 
-            <div class="wrap-input100 m-b-16">
-                <input class="input100" [(ngModel)]="usuario.Username" type="text" required name="email" placeholder="email">
+            <div class="wrap-input100 m-b-16 mt-1">
+                <input class="input100" [(ngModel)]="usuario.Username" type="text" required name="email" placeholder="Ingrese usuario aqui">
 
             </div>
 
-            <b><span  *ngIf="loginForm.submitted && loginForm.controls['email'].errors" class="text-danger animate__animated animate__fadeIn"> El email es obligatorio</span></b>
+            <span *ngIf="loginForm.submitted && loginForm.controls['email'].errors" class="text-danger animate__animated animate__fadeIn"> El usuario es obligatorio</span>
 
 
-            <label for="password" class="mt-2"> Password</label>
+            <label for="password" class="mt-2"> Contraseña</label>
 
             <div class="wrap-input100 m-b-16" data-validate="Password is required">
-                <input [(ngModel)]="usuario.Contrasena" required class="input100" type="password" name="password" placeholder="Password">
+                <input [(ngModel)]="usuario.Contrasena" required class="input100" type="password" name="password" placeholder="Ingrese Contraseña aqui">
             </div>
 
-            <b><span  *ngIf="loginForm.submitted && loginForm.controls['password'].errors" class="text-danger animate__animated animate__fadeIn"> La contraseña es obligatoria</span></b>
+            <span *ngIf="loginForm.submitted && loginForm.controls['password'].errors" class="text-danger animate__animated animate__fadeIn"> La contraseña es obligatoria</span>
 
 
             <br>
-            <div class="container-login100-form-btn m-t-17">
+            <div class="container-login100-form-btn mt-1">
                 <button class="login100-form-btn" type="submit">
                     Ingresar
                 </button>

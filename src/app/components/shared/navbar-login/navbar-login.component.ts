@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { UsuarioModel } from '../../models/paciente.models';
+import { AuthService } from '../../../services/auth/auth.service';
 
 
 @Component({
@@ -8,10 +10,20 @@ import { Component } from '@angular/core';
 })
 export class NavbarLoginComponent  {
 
+
+  Usuario:UsuarioModel = {
+
+    usuario: "fespitia"
+  };
   
 
-  constructor() { }
+  constructor(private auth:AuthService) { }
 
  
+  logout(){
+
+    this.auth.logout();
+
+  }
 
 }

@@ -13,6 +13,8 @@ import Swal from 'sweetalert2';
 export class PacientesComponent {
 
 
+ 
+
   valorName:boolean;
   valorIngreso: boolean;
   valorDocumento:boolean;

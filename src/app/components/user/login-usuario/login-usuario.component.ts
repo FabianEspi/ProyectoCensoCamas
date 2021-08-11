@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import Swal from 'sweetalert2';
 
 
 
@@ -13,7 +14,8 @@ import { UsuarioModel } from '../../models/usuario.models';
   styleUrls: ['./login-usuario.component.css']
 })
 export class LoginUsuarioComponent implements OnInit {
-  public formSubmitted= false;
+  
+
 
   usuario: UsuarioModel = new UsuarioModel();
 
@@ -39,6 +41,20 @@ export class LoginUsuarioComponent implements OnInit {
 
   login(form:NgForm){
    
+    if( form.invalid){
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Ingrese el Usuario y contraseña correctos',
+        
+      })
+      
+      return ;
+
+    }
+
+
+    
     this.router.navigateByUrl('/camas/inicio');
     return this.auth.login(this.usuario);
     
@@ -51,16 +67,13 @@ export class LoginUsuarioComponent implements OnInit {
 
   }
 
+
   
-
-  estaAutenticado(){
-
-    
-  }
 
   logout(){
 
-    this.router.navigateByUrl('/camas/inicio')
+    
+    this.auth.logout();
   }
 
 

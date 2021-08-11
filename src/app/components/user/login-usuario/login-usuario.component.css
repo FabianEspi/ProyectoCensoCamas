@@ -12,9 +12,9 @@ body {
 
 .login-box {
     width: 320px;
-    height: 420px;
+    height: 450px;
     background: lightgrey;
-    color: white;
+    color: #264285;
     top: 50%;
     left: 50%;
     position: absolute;

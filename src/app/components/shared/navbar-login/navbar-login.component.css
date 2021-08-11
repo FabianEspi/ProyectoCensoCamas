@@ -51,11 +51,6 @@
     color: #264285;
 }
 
-.link-ingreso {
-    margin-right: 12.5%;
-    margin-left: 10%;
-}
-
 a {
     font-family: 'Poppins';
     font-size: 15px;
@@ -76,6 +71,10 @@ a {
     width: 35px;
 }
 
+.name_ingreso {
+    margin-top: 12px;
+}
+
 i {
     color: white;
     font-size: 25px;
@@ -91,6 +90,8 @@ h5 {
 
 .ingreso {
     margin-top: 200px;
+    margin-right: 12.5%;
+    margin-left: 10%;
 }
 
 .icon-ingresar {

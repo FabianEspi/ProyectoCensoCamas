@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrasladoComponent implements OnInit {
 
+  
+
   constructor() { }
 
   ngOnInit(): void {

@@ -9,6 +9,7 @@ import { TrasladoComponent } from './components/camas/traslado/traslado.componen
 import { EgresoComponent } from './components/camas/egreso/egreso.component';
 import { CensoComponent } from './components/camas/censo/censo.component';
 import { InicioCamasComponent } from './components/camas/inicio/inicio.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 
@@ -25,9 +26,9 @@ const APP_ROUTES: Routes = [
 
 
     ] },
-    { path: 'camas', component: CamasComponent, children:[
+    { path: 'camas', component: CamasComponent,  canActivate: [ AuthGuard ], children:[
 
-        { path: 'inicio', component: InicioCamasComponent },
+        { path: 'inicio', component: InicioCamasComponent }, 
         { path: 'traslado', component: TrasladoComponent },
         { path: 'egreso', component: EgresoComponent},
         { path: 'censo', component: CensoComponent }
@@ -37,7 +38,8 @@ const APP_ROUTES: Routes = [
 
     ] },
 
-    { path: '**', pathMatch: 'full', redirectTo: 'inicio/home' }
+    { path: '**', redirectTo: 'inicio/home' },
+    { path: '',pathMatch: 'full', redirectTo: 'inicio/home' },
 
 
 
