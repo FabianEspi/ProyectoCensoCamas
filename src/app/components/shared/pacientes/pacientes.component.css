@@ -30,3 +30,7 @@ table tbody i {
 .icon-button {
     cursor: pointer;
 }
+
+.filtro-traslado {
+    width: 200px;
+}

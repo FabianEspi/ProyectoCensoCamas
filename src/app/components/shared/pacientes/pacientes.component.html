@@ -13,29 +13,31 @@
             
             <option value="identificacion">No. Identificacion</option>
             <option value="ingreso">No. Ingreso</option>
-            <option value="nombre">Nombre</option>
+            <!-- <option value="nombre">Nombre</option> -->
             
           </select>
 
-        <div class="filter-label mt-5" *ngIf="valorName">
+
+
+        <!-- <div class="filter-label mt-5" *ngIf="valorName">
 
             <h6>Por favor Ingrese su informacion
             </h6>
             <input #termino type="text" (keyup.enter)="findPacientByName(termino.value)" class="form-control" placeholder="Buscar Paciente por Nombre">
-        </div>
+        </div> -->
 
         <div class="filter-label mt-5 " *ngIf="valorIngreso">
 
             <h6>Por favor Ingrese su informacion
             </h6>
-            <input #termino type="text" (keyup.enter)="findPacientByIngreso(termino.value)" class="form-control" placeholder="Buscar Paciente por No de Ingreso">
+            <input #termino type="number" (keyup.enter)="findPacientByIngreso(termino.value)" class="form-control" placeholder="Buscar Paciente por No de Ingreso">
         </div>
 
         <div class="filter-label mt-5 " *ngIf="valorDocumento">
 
             <h6>Por favor Ingrese su informacion
             </h6>
-            <input #termino type="text" (keyup.enter)="findPacientByDocument(termino.value)" class="form-control" placeholder="Buscar Paciente por No de Identificacion">
+            <input #termino type="number" (keyup.enter)="findPacientByDocument(termino.value)" class="form-control" placeholder="Buscar Paciente por No de Identificacion">
         </div>
 
 
@@ -167,21 +169,85 @@
 
 
 
+        <div class="mt-5" *ngIf="pacienteSeleccionado">
+
+            <h4>TRASLADAR PACIENTE: <i class="fas fa-luggage-cart"></i></h4>
+
+
+
+            <div class="row">
+
+                <div class="col">
+
+                    <h6 class="mt-5 ml-1"> Grupo:*</h6>
+                    <select #opcion class="form-select filtro-traslado" aria-label=".form-select-lg example" (click)="optionSelectedName(opcion.value)" (click)="optionSelectedDocument(opcion.value)" (click)="optionSelectedIngreso(opcion.value)">
+                    
+                    
+                    <option value="identificacion">No. Identificacion</option>
+                    <option value="ingreso">No. Ingreso</option>
+                    <!-- <option value="nombre">Nombre</option> -->
+                    
+            </select>
+
+                </div>
+
+                <div class="col">
+
+                    <h6 class="mt-5 ml-1"> Subgrupo:*</h6>
+                    <select #opcion class="form-select filtro-traslado" aria-label=".form-select-lg example" (click)="optionSelectedName(opcion.value)" (click)="optionSelectedDocument(opcion.value)" (click)="optionSelectedIngreso(opcion.value)">
+                            
+                            
+                            <option value="identificacion">No. Identificacion</option>
+                            <option value="ingreso">No. Ingreso</option>
+                            <!-- <option value="nombre">Nombre</option> -->
+                            
+                    </select>
+
+
+                </div>
+
+                <div class="col">
+
+                    <h6 class="mt-5 ml-1"> Tipo de Cama:*</h6>
+                    <select #opcion class="form-select filtro-traslado" aria-label=".form-select-lg example" (click)="optionSelectedName(opcion.value)" (click)="optionSelectedDocument(opcion.value)" (click)="optionSelectedIngreso(opcion.value)">
+                    
+                    
+                    <option value="identificacion">No. Identificacion</option>
+                    <option value="ingreso">No. Ingreso</option>
+                    <!-- <option value="nombre">Nombre</option> -->
+                    
+            </select>
+
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
