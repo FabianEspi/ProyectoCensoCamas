@@ -26,18 +26,18 @@
             <input #termino type="text" (keyup.enter)="findPacientByName(termino.value)" class="form-control" placeholder="Buscar Paciente por Nombre">
         </div> -->
 
-        <div class="filter-label mt-5 " *ngIf="valorIngreso">
+        <div class="filter-label mt-3 " *ngIf="valorIngreso">
 
             <h6>Por favor Ingrese su informacion
             </h6>
-            <input #termino type="number" (keyup.enter)="findPacientByIngreso(termino.value)" class="form-control" placeholder="Buscar Paciente por No de Ingreso">
+            <input #ingreso type="number" (keyup.enter)="findPacientByIngreso(ingreso.value)" class="form-control" placeholder="Buscar Paciente por No de Ingreso">
         </div>
 
-        <div class="filter-label mt-5 " *ngIf="valorDocumento">
+        <div class="filter-label mt-3 " *ngIf="valorDocumento">
 
             <h6>Por favor Ingrese su informacion
             </h6>
-            <input #termino type="number" (keyup.enter)="findPacientByDocument(termino.value)" class="form-control" placeholder="Buscar Paciente por No de Identificacion">
+            <input #documento type="number" (keyup.enter)="findPacientByDocument(documento.value)" class="form-control" placeholder="Buscar Paciente por No de Identificacion">
         </div>
 
 
@@ -98,30 +98,22 @@
                 <th scope="col ">No. Ingreso</th>
                 <th scope="col ">Nombres</th>
                 <th scope="col ">Apellidos</th>
-                <th scope="col ">Fecha de Ingreso</th>
+                <th scope="col ">Ultimo Ingreso</th>
                 <th scope="col ">Accion</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <th>12121212</th>
-                <td>432423</td>
-                <td>Fabian Alberto</td>
-                <td>Espitia Muñoz </td>
+                <th>{{paciente.documento}}</th>
+                <td>{{paciente.id}}</td>
+                <td>{{paciente.primerNombre + " "+paciente.segundoNombre}}</td>
+                <td>{{paciente.primerApellido +" "+paciente.segundoApellido}}</td>
                 <td>11/07/2021</td>
                 <td>
-                    <a class="button" (click)="seleccionarPaciente('12121212','23')"> <i class="fas fa-user-check icon-button"></i> </a>
+                    <a class="button" (click)="seleccionarPaciente(paciente.documento,paciente.id)"> <i class="fas fa-user-check icon-button"></i> </a>
                 </td>
             </tr>
 
-            <tr>
-                <th>12121212</th>
-                <td>432423</td>
-                <td>Fabian Alberto</td>
-                <td>Espitia Muñoz </td>
-                <td>11/07/2021</td>
-                <td><i class="fas fa-user-check "></i></td>
-            </tr>
 
 
         </tbody>
@@ -135,7 +127,7 @@
 
 
 
-    <div class="mt-5" *ngIf="pacienteSeleccionado">
+    <div class="mt-5 tabla-seleccionado" *ngIf="pacienteSeleccionado">
         <h4>PACIENTE SELECCIONADO: <i class="fas fa-user-check"></i></h4>
 
         <table class="table mt-5 text-center">
@@ -152,13 +144,13 @@
             </thead>
             <tbody>
                 <tr>
-                    <th>12121212</th>
-                    <td>432423</td>
-                    <td>Fabian Alberto</td>
-                    <td>Espitia Muñoz </td>
+                    <th>{{paciente.documento}}</th>
+                    <td>{{paciente.id}}</td>
+                    <td>{{paciente.primerNombre + " "+paciente.segundoNombre}}</td>
+                    <td>{{paciente.primerApellido +" "+paciente.segundoApellido}}</td>
                     <td>11/07/2021</td>
                     <td>
-                        <a style="cursor: pointer;" class="button" (click)="seleccionarPaciente('12121212','23')"> <i class="fas fa-times"></i> </a>
+                        <a style="cursor: pointer;" class="button" (click)="cancelarpaciente()"> <i class="fas fa-times"></i> </a>
                     </td>
                 </tr>
 
@@ -167,75 +159,6 @@
         </table>
 
 
-
-
-        <div class="mt-5" *ngIf="pacienteSeleccionado">
-
-            <h4>TRASLADAR PACIENTE: <i class="fas fa-luggage-cart"></i></h4>
-
-
-
-            <div class="row">
-
-                <div class="col">
-
-                    <h6 class="mt-5 ml-1"> Grupo:*</h6>
-                    <select #opcion class="form-select filtro-traslado" aria-label=".form-select-lg example" (click)="optionSelectedName(opcion.value)" (click)="optionSelectedDocument(opcion.value)" (click)="optionSelectedIngreso(opcion.value)">
-                    
-                    
-                    <option value="identificacion">No. Identificacion</option>
-                    <option value="ingreso">No. Ingreso</option>
-                    <!-- <option value="nombre">Nombre</option> -->
-                    
-            </select>
-
-                </div>
-
-                <div class="col">
-
-                    <h6 class="mt-5 ml-1"> Subgrupo:*</h6>
-                    <select #opcion class="form-select filtro-traslado" aria-label=".form-select-lg example" (click)="optionSelectedName(opcion.value)" (click)="optionSelectedDocument(opcion.value)" (click)="optionSelectedIngreso(opcion.value)">
-                            
-                            
-                            <option value="identificacion">No. Identificacion</option>
-                            <option value="ingreso">No. Ingreso</option>
-                            <!-- <option value="nombre">Nombre</option> -->
-                            
-                    </select>
-
-
-                </div>
-
-                <div class="col">
-
-                    <h6 class="mt-5 ml-1"> Tipo de Cama:*</h6>
-                    <select #opcion class="form-select filtro-traslado" aria-label=".form-select-lg example" (click)="optionSelectedName(opcion.value)" (click)="optionSelectedDocument(opcion.value)" (click)="optionSelectedIngreso(opcion.value)">
-                    
-                    
-                    <option value="identificacion">No. Identificacion</option>
-                    <option value="ingreso">No. Ingreso</option>
-                    <!-- <option value="nombre">Nombre</option> -->
-                    
-            </select>
-
-
-                </div>
-
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-        </div>
 
 
 
@@ -251,3 +174,18 @@
 
 
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

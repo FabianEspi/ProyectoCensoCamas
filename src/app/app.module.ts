@@ -17,10 +17,13 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { TrasladoComponent } from './components/camas/traslado/traslado.component';
 import { EgresoComponent } from './components/camas/egreso/egreso.component';
 import { CensoComponent } from './components/camas/censo/censo.component';
-import { CamasComponent } from './components/camas/camas/camas.component';
+
 import { InicioCamasComponent } from './components/camas/inicio/inicio.component';
 import { PacientesComponent } from './components/shared/pacientes/pacientes.component';
 import { NavbarLoginComponent } from './components/shared/navbar-login/navbar-login.component';
+
+import { CamasComponent } from './components/camas/camas/camas.component';
+import { CamaInterfazComponent } from './components/shared/cama-interfaz/cama-interfaz.component';
 
 
 
@@ -43,7 +46,9 @@ import { NavbarLoginComponent } from './components/shared/navbar-login/navbar-lo
     CamasComponent,
     InicioCamasComponent,
     PacientesComponent,
-    NavbarLoginComponent
+    NavbarLoginComponent,
+    CamasComponent,
+    CamaInterfazComponent
     ],
   imports: [
     BrowserModule,

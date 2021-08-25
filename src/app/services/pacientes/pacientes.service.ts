@@ -1,43 +1,43 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class PacientesService {
 
-  private url = ''
+  private url = 'http://172.16.33.100:8080/pacientes'
 
   constructor(private http: HttpClient) { }
 
 
   
 
-  findPacientByIngreso(ingreso:String ) {
+  findPacientByIngreso(ingreso:string) {
 
-    this.http.get(`${this.url}/encontrar/ingreso/${ingreso}`)
-
-  }
-
-  findPacientByDocument(documento:String ) {
-
-    this.http.get(`${this.url}/encontrar/ingreso/${documento}`)
-
-  }
-
-  findPacientByName(nombre:String ) {
-
-    this.http.get(`${this.url}/encontrar/documento/${nombre}`)
-
-  }
-
-  public actualizarCama(paciente:string, cama:string){
+    
+    
+    return this.http.get(`${this.url}/find/${ingreso}`);
 
     
 
+  }
+
+  findPacientByDocument(documento:string) {
+
+
+    return this.http.get(`${this.url}/encontrar/documento/${documento}`);
 
   }
 
+ /*  findPacientByName(nombre:String ) {
+
+    this.http.get(`${this.url}/encontrar/documento/${nombre}`)
+
+  } */
+
+  
 
 
 

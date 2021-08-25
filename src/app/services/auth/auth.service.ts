@@ -8,20 +8,25 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
+
+  
   public autenticado:boolean;
-  url = '';
+  url = 'http://172.16.33.100:8080/usuarios';
 
   constructor(private http:HttpClient, private router:Router) {
 
    }
 
 
-  public login(usuario:UsuarioModel){
+  //public login(usuario:UsuarioModel){
 
 
+    public login(username:string){
+
+    this.autenticado = true;
+    this.router.navigateByUrl('/camas/inicio')
+    return this.http.get(`${this.url}/find/${username}`);
     
-    this.http.get(`${this.url}/encontrar/documento/${usuario}`);
-    return this.autenticado = true;
    }
 
    
@@ -30,7 +35,7 @@ export class AuthService {
   estaAutenticado():boolean{
 
 
-      return this.autenticado = true;
+      return this.autenticado;
     
   }
 

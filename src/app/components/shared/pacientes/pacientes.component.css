@@ -7,6 +7,17 @@
     width: 300px;
 }
 
+.tabla-seleccionado {
+    color: green;
+}
+
+.tabla-seleccionado thead {
+    background-color: green;
+    color: white;
+    font-weight: bolder;
+    border: green;
+}
+
 thead {
     background-color: #264285;
     color: white;

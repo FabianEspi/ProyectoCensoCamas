@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { PacientesService } from '../../../services/pacientes/pacientes.service';
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
+import { PacienteModel } from '../../models/paciente.models';
+import { Router } from '@angular/router';
+
 
 
 
@@ -14,15 +17,22 @@ export class PacientesComponent {
 
 
  
+  paciente:PacienteModel = new PacienteModel(); 
 
+  
   valorName:boolean;
   valorIngreso: boolean;
   valorDocumento:boolean;
   buscando:boolean = false;
   noData:boolean = false;
-  pacienteSeleccionado:boolean = false;
+  pacienteSeleccionado:boolean;
+  mostrarTabla:boolean = false;
 
-  constructor(private pacientesService:PacientesService, private http:HttpClient) { }
+  constructor(private pacientesService:PacientesService, private http:HttpClient, private router:Router) {
+
+    this.pacienteSeleccionado = false;
+   
+   }
 
 
 
@@ -32,7 +42,7 @@ export class PacientesComponent {
   
 
  
-  findPacientByName(nombre:string){
+  /* findPacientByName(nombre:string){
 
 
     this.buscando = true;
@@ -42,22 +52,59 @@ export class PacientesComponent {
     
 
 
-  }
+  } */
 
-  findPacientByIngreso(ingreso:String ) {
+  findPacientByIngreso(ingreso:string ) {
 
     this.buscando = true;
-    this.pacientesService.findPacientByIngreso(ingreso);
+    
+    this.pacientesService.findPacientByIngreso(ingreso).subscribe(resp => {
+
+      setTimeout(() => {
+        
+
+        this.paciente.documento = resp["documento"];
+        this.paciente.id= resp["id"];
+        this.paciente.primerNombre = resp["primerNombre"];
+        this.paciente.segundoNombre = resp["segundoNombre"];
+        this.paciente.primerApellido= resp["primerApellido"];
+        this.paciente.segundoApellido=resp["segundoApellido"];
+        this.buscando = false;
+        console.log("Patient found correctly");
+        
+        
+      }, 2000);
+      
+    })
     
 
   }
 
-  findPacientByDocument(documento:String ) {
+  findPacientByDocument(documento:string ) {
 
 
     this.buscando = true;
     console.log(documento);
-    this.pacientesService.findPacientByDocument(documento);
+
+    this.pacientesService.findPacientByDocument(documento).subscribe(resp => {
+
+     
+      setTimeout(() => {
+
+        console.log(resp["id"]);
+
+        this.paciente.documento = resp["documento"];
+        this.paciente.id= resp["id"];
+        this.paciente.primerNombre = resp["primerNombre"];
+        this.paciente.segundoNombre = resp["segundoNombre"];
+        this.paciente.primerApellido= resp["primerApellido"];
+        this.paciente.segundoApellido=resp["segundoApellido"];
+        this.buscando = false;
+        console.log("Patient found correctly");
+        
+      }, 2000); 
+    
+    })
     
 
 
@@ -66,8 +113,8 @@ export class PacientesComponent {
   seleccionarPaciente(documento:string, id:string){
 
     Swal.fire({
-      title: 'Esta Seguro de escoger el paciente?',
-      text: "id: "+id+ " documento: "+documento ,
+      title: '¿Esta seguro de escoger este paciente?',
+      text: " Ingreso: "+id+ " Documento: "+documento ,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#264285',
@@ -80,13 +127,23 @@ export class PacientesComponent {
           'El paciente ha sido seleccionado',
           'success'
         )
-        console.log("Hola"+ documento+ id);
+      
         this.pacienteSeleccionado= true;
+        console.log("Patient selected correctly");
       }
     })
 
     
   }
+
+
+  cancelarpaciente(){
+
+      this.pacienteSeleccionado = false;
+    
+    
+  }
+
 
   public optionSelectedName(valor:string){
   
@@ -127,12 +184,7 @@ export class PacientesComponent {
    
   }
 
-  public actualizarCama(paciente:string, cama:string){
-
-    return this.http
-
-
-  }
+  
 
   
 

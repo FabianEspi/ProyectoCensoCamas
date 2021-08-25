@@ -17,6 +17,7 @@ export class LoginUsuarioComponent implements OnInit {
   
 
 
+  nameUsuario: string;
   usuario: UsuarioModel = new UsuarioModel();
 
   
@@ -45,7 +46,7 @@ export class LoginUsuarioComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: 'Ingrese el Usuario y contraseña correctos',
+        text: 'Por favor ingrese el Usuario y contraseña',
         
       })
       
@@ -54,10 +55,27 @@ export class LoginUsuarioComponent implements OnInit {
     }
 
 
-    
-    this.router.navigateByUrl('/camas/inicio');
-    return this.auth.login(this.usuario);
-    
+    //Descomentar cuando ya este el servicio
+
+     return this.auth.login(this.usuario.Username)/* .subscribe((resp:any)=> {
+
+      this.nameUsuario= resp['name'];
+      
+      
+
+      if(this.nameUsuario.length> 0){
+
+        return this.nameUsuario = resp['name'];
+      }
+
+      else{
+
+        return;
+      }
+
+    });
+  */
+
 
 
 
