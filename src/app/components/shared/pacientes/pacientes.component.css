@@ -15,7 +15,15 @@
     background-color: green;
     color: white;
     font-weight: bolder;
-    border: green;
+    border: 2px solid green;
+}
+
+.tabla-seleccionado tbody {
+    border: 2px solid green;
+}
+
+.tabla-seleccionado tbody i {
+    color: green;
 }
 
 thead {

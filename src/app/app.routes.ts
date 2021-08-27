@@ -26,7 +26,7 @@ const APP_ROUTES: Routes = [
 
 
     ] },
-    { path: 'camas', component: CamasComponent,  canActivate: [ AuthGuard ], children:[
+    { path: 'camas', component: CamasComponent,  children:[
 
         { path: 'inicio', component: InicioCamasComponent }, 
         { path: 'traslado', component: TrasladoComponent },

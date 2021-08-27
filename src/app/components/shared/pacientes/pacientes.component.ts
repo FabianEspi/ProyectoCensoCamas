@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 
 
 
+
 @Component({
   selector: 'app-pacientes',
   templateUrl: './pacientes.component.html',
@@ -18,6 +19,7 @@ export class PacientesComponent {
 
  
   paciente:PacienteModel = new PacienteModel(); 
+  pacientes:PacienteModel[];
 
   
   valorName:boolean;
@@ -27,6 +29,7 @@ export class PacientesComponent {
   noData:boolean = false;
   pacienteSeleccionado:boolean;
   mostrarTabla:boolean = false;
+  
 
   constructor(private pacientesService:PacientesService, private http:HttpClient, private router:Router) {
 
@@ -57,10 +60,13 @@ export class PacientesComponent {
   findPacientByIngreso(ingreso:string ) {
 
     this.buscando = true;
+    this.noData = false;
+    this.mostrarTabla=false;
     
     this.pacientesService.findPacientByIngreso(ingreso).subscribe(resp => {
 
       setTimeout(() => {
+        
         
 
         this.paciente.documento = resp["documento"];
@@ -71,11 +77,20 @@ export class PacientesComponent {
         this.paciente.segundoApellido=resp["segundoApellido"];
         this.buscando = false;
         console.log("Patient found correctly");
+        this.mostrarTabla = true;
         
         
       }, 2000);
+
       
-    })
+    },(err)=>{
+
+      this.mostrarTabla = false;
+      this.buscando=false;
+      this.noData = true;
+
+
+    });
     
 
   }
@@ -84,14 +99,16 @@ export class PacientesComponent {
 
 
     this.buscando = true;
-    console.log(documento);
-
     this.pacientesService.findPacientByDocument(documento).subscribe(resp => {
 
+      
+
+      
      
       setTimeout(() => {
 
-        console.log(resp["id"]);
+       
+        
 
         this.paciente.documento = resp["documento"];
         this.paciente.id= resp["id"];
@@ -104,7 +121,14 @@ export class PacientesComponent {
         
       }, 2000); 
     
-    })
+    },(err)=>{
+
+      
+      this.buscando=false;
+      this.noData = true;
+
+
+    });
     
 
 
@@ -129,6 +153,7 @@ export class PacientesComponent {
         )
       
         this.pacienteSeleccionado= true;
+        this.mostrarTabla = false;
         console.log("Patient selected correctly");
       }
     })

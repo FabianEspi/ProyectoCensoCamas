@@ -1,13 +1,13 @@
 <div class="wrapper">
 
-    <h3 *ngIf="!pacienteSeleccionado">SELECCIÓN DE PACIENTES</h3>
+    <h3 *ngIf="!pacienteSeleccionado"><u>SELECCIÓN DE PACIENTES</u></h3>
 
-
+    <p class="mt-3" style="color: black;" *ngIf="!pacienteSeleccionado"> Por favor Ingrese Los Filtros de Busqueda para seleccionar el paciente</p>
 
 
     <div class="filter" *ngIf="!pacienteSeleccionado">
 
-        <h6 class="mt-5"> Filtro de busqueda:</h6>
+        <h6 class="mt-3"> Filtro de busqueda:</h6>
         <select #opcion class="form-select " aria-label=".form-select-lg example" (click)="optionSelectedName(opcion.value)" (click)="optionSelectedDocument(opcion.value)" (click)="optionSelectedIngreso(opcion.value)">
             
             
@@ -45,7 +45,7 @@
     </div>
 
 
-    <div class="container" *ngIf="noData">
+    <div class="container" *ngIf="!buscando && noData">
 
         <div class="alert alert-warning text-center mt-3 ">
 
@@ -90,7 +90,7 @@
 
 
 
-    <table class="table mt-5 text-center" *ngIf="!pacienteSeleccionado">
+    <table class="table mt-5 text-center" *ngIf="mostrarTabla">
         <thead>
 
             <tr>
@@ -108,7 +108,7 @@
                 <td>{{paciente.id}}</td>
                 <td>{{paciente.primerNombre + " "+paciente.segundoNombre}}</td>
                 <td>{{paciente.primerApellido +" "+paciente.segundoApellido}}</td>
-                <td>11/07/2021</td>
+                <td></td>
                 <td>
                     <a class="button" (click)="seleccionarPaciente(paciente.documento,paciente.id)"> <i class="fas fa-user-check icon-button"></i> </a>
                 </td>
@@ -128,9 +128,11 @@
 
 
     <div class="mt-5 tabla-seleccionado" *ngIf="pacienteSeleccionado">
-        <h4>PACIENTE SELECCIONADO: <i class="fas fa-user-check"></i></h4>
+        <h3><u>PACIENTE SELECCIONADO:</u> <i class="fas fa-user-check"></i></h3>
 
-        <table class="table mt-5 text-center">
+        <p class="mt-4" style="color: black;"> Paciente Seleccionado correctamente con la siguiente informacion:</p>
+
+        <table class="table mt-3 text-center">
             <thead>
 
                 <tr>
@@ -148,7 +150,7 @@
                     <td>{{paciente.id}}</td>
                     <td>{{paciente.primerNombre + " "+paciente.segundoNombre}}</td>
                     <td>{{paciente.primerApellido +" "+paciente.segundoApellido}}</td>
-                    <td>11/07/2021</td>
+                    <td></td>
                     <td>
                         <a style="cursor: pointer;" class="button" (click)="cancelarpaciente()"> <i class="fas fa-times"></i> </a>
                     </td>
@@ -162,6 +164,8 @@
 
 
 
+
+        <app-cama-interfaz></app-cama-interfaz>
 
 
 
