@@ -6,3 +6,37 @@
 h3 {
     color: #264285;
 }
+
+.container {
+    margin: auto;
+    background: lightblue;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+a div {
+    border: 2px solid #264285;
+    border-radius: 15px;
+    width: 140px;
+    text-align: center;
+    font-size: 20px;
+    color: #264285;
+    font-weight: bold;
+    font-family: 'Poppins';
+}
+
+a div:hover {
+    background-color: #264285;
+    color: white;
+    transform: translateY(-5px);
+    transition: background-color 0.8s linear 0.2s;
+    font-family: 'Poppins';
+    cursor: pointer;
+}
+
+.boton-buscar {
+    display: flex;
+    justify-content: center;
+}

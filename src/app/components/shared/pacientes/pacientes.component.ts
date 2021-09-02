@@ -83,6 +83,7 @@ export class PacientesComponent {
       }, 2000);
 
       
+
     },(err)=>{
 
       this.mostrarTabla = false;
@@ -162,6 +163,7 @@ export class PacientesComponent {
   }
 
 
+  
   cancelarpaciente(){
 
       this.pacienteSeleccionado = false;

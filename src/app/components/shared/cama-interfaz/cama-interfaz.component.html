@@ -7,15 +7,16 @@
         <p class="mt-4 ml-1">Por favor Ingrese los siguientes filtros para realizar su busqueda</p>
 
 
+
         <div class=" col ">
 
             <h6 class=" "> Grupo:*</h6>
 
-            <select #opcion class="form-select " aria-label=".form-select-lg example ">
+            <select #grupo class="form-select " aria-label=".form-select-lg example" (click)="findAllCamas()">
             
-            
-                <option value="identificacion ">No. Identificacion</option>
-                <option value="ingreso ">No. Ingreso</option>
+            <option selected > Escoja Grupo ...</option> 
+            <option [value]=grupos *ngFor="let grupos of grupitos" (click)="findSubgrupoWithGrupo(grupo.value)">{{grupos}} </option>
+                
               
                 
             </select>
@@ -27,11 +28,10 @@
 
             <h6 class=" "> Subgrupo:*</h6>
 
-            <select #opcion class="form-select " aria-label=".form-select-lg example ">
+            <select class="form-select " aria-label=".form-select-lg example" (click)="findSubgrupoWithGrupo(grupo.value)">
           
-          
-              <option value="identificacion ">No. Identificacion</option>
-              <option value="ingreso ">No. Ingreso</option>
+                <option selected > Escoja SubGrupo ...</option> 
+                <option  *ngFor="let subgrupos of subgrupitos" >{{subgrupos}} </option>
             
               
            </select>
@@ -44,14 +44,17 @@
 
             <h6 class=" "> Tipo De Cama:</h6>
 
-            <select #opcion class="form-select " aria-label=".form-select-lg example ">
+            <select class="form-select " aria-label=".form-select-lg example " (click)="findAllTipodeCama()">
           
-          
-              <option value="identificacion ">No. Identificacion</option>
-              <option value="ingreso ">No. Ingreso</option>
+                <option selected > Escoja Tipo(Opcional) ...</option> 
+                <option  *ngFor="let tipo of tipito" >{{tipo}} </option>
             
               
            </select>
+
+
+
+
 
 
 
@@ -61,12 +64,44 @@
     </div>
 
 
-
-</div>
-
-<div class="container ">
+    <div class="boton-buscar mt-3">
 
 
+        <a>
+
+
+            <div>
+                <i class="fas fa-search"></i> Buscar
+
+            </div>
+
+
+
+        </a>
+
+    </div>
+
+
+
+    <div>
+
+
+
+        <div class="container mt-5">
+
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+            <div class="item">7</div>
+            <div class="item">8</div>
+            <div class="item">9</div>
+            <div class="item">10</div>
+
+        </div>
+    </div>
 
 
 </div>
