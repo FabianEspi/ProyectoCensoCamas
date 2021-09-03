@@ -28,10 +28,10 @@
 
             <h6 class=" "> Subgrupo:*</h6>
 
-            <select class="form-select " aria-label=".form-select-lg example" (click)="findSubgrupoWithGrupo(grupo.value)">
+            <select #subgrupos class="form-select " aria-label=".form-select-lg example" (click)="findSubgrupoWithGrupo(grupo.value)">
           
                 <option selected > Escoja SubGrupo ...</option> 
-                <option  *ngFor="let subgrupos of subgrupitos" >{{subgrupos}} </option>
+                <option  [value]=subgrupos *ngFor="let subgrupos of subgrupitos" >{{subgrupos}} </option>
             
               
            </select>
@@ -67,7 +67,7 @@
     <div class="boton-buscar mt-3">
 
 
-        <a>
+        <a (click)="findCamaGrupoSubgrupoTipo(4,1,1)">
 
 
             <div>
@@ -83,25 +83,65 @@
 
 
 
-    <div>
+    <div *ngIf="!cargando ">
 
 
+        <h5>{{tipoCama}}</h5>
 
         <div class="container mt-5">
 
-            <div class="item">1</div>
-            <div class="item">2</div>
-            <div class="item">3</div>
-            <div class="item">4</div>
-            <div class="item">5</div>
-            <div class="item">6</div>
-            <div class="item">7</div>
-            <div class="item">8</div>
-            <div class="item">9</div>
-            <div class="item">10</div>
+            <div *ngFor="let camas of camitas" class="item">`Codigo:{{camas.codigoCama}} estado:{{camas.estadoCama}} url:{{camas.URL}}` </div>
 
         </div>
     </div>
+
+
+    <div>
+
+        <div class="alert alert-warning text-center mt-3" *ngIf="nodata">
+
+            <h4 class="alert-heading ">No se encontraron registros</h4>
+
+            <p>
+
+                <i class="fa fa-exclamation fa-2x mt-3 "></i>
+            </p>
+
+
+
+
+        </div>
+
+    </div>
+
+
+    <div>
+
+        <div class="alert alert-info text-center " *ngIf="cargando">
+
+
+
+            <h4 class="alert-heading ">Cargando</h4>
+
+            <p>
+
+                <i class="fa fa-sync-alt fa-spin fa-2x "></i>
+            </p>
+
+            <p class="mb-0 ">
+
+                Espere por Favor
+
+            </p>
+
+
+        </div>
+
+    </div>
+
+
+
+
 
 
 </div>

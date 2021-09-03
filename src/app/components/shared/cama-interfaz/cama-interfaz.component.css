@@ -10,10 +10,21 @@ h3 {
 .container {
     margin: auto;
     background: lightblue;
-    height: 400px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+
+.item {
+    background: tomato;
+    color: #fff;
+    flex: none;
+    width: calc((100% - 30px)/4);
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5em 0;
 }
 
 a div {
