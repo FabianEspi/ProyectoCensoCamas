@@ -7,9 +7,8 @@ export class PacienteModel{
     lugarExpedicion:string;
     fechaNacimiento:string;
     sexo:number;
-    primerNombre:string;
-    segundoNombre?:string;
-    primerApellido:string;
-    segundoApellido:string;
+    nombre:string;
+    fechaIngreso:string;
+    estadoIngreso:string;
 
 }

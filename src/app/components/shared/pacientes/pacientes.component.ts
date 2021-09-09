@@ -63,18 +63,43 @@ export class PacientesComponent {
     this.noData = false;
     this.mostrarTabla=false;
     
-    this.pacientesService.findPacientByIngreso(ingreso).subscribe(resp => {
+    this.pacientesService.findPacientIngresoById(ingreso).subscribe(resp => {
+
+      /* this.paciente.estadoIngreso = resp["estado"];
+
+      if(this.paciente.estadoIngreso === "Cerrado"){
+
+        console.log("error");
+        Swal.fire({
+          title: 'El paciente Seleccionado se encuentra en estado CERRADO!',
+          text: " Ingreso: "+ingreso+ " Documento: "+ resp["paciente"]["documento"] ,
+          icon: 'info',
+          confirmButtonColor: '#264285',
+          confirmButtonText: 'Aceptar'
+        });
+        this.mostrarTabla = false;
+      this.buscando=false;
+      this.noData = true;
+    
+
+
+
+      } else{
+ */
+      
+
+      
 
       setTimeout(() => {
         
         
 
         this.paciente.documento = resp["documento"];
-        this.paciente.id= resp["id"];
-        this.paciente.primerNombre = resp["primerNombre"];
-        this.paciente.segundoNombre = resp["segundoNombre"];
-        this.paciente.primerApellido= resp["primerApellido"];
-        this.paciente.segundoApellido=resp["segundoApellido"];
+        this.paciente.id= resp["consecutivo"];
+        this.paciente.nombre = resp["paciente"];
+        this.paciente.fechaIngreso= resp["fechaIngreso"];
+        this.paciente.estadoIngreso = resp["estadoIngreso"];
+
         this.buscando = false;
         console.log("Patient found correctly");
         this.mostrarTabla = true;
@@ -82,6 +107,7 @@ export class PacientesComponent {
         
       }, 2000);
 
+   /*  } */
       
 
     },(err)=>{
@@ -93,6 +119,7 @@ export class PacientesComponent {
 
     });
     
+    
 
   }
 
@@ -100,7 +127,10 @@ export class PacientesComponent {
 
 
     this.buscando = true;
-    this.pacientesService.findPacientByDocument(documento).subscribe(resp => {
+    this.noData = false;
+    this.mostrarTabla=false;
+
+    this.pacientesService.findPacientIngresoByDocument(documento).subscribe(resp => {
 
       
 
@@ -112,13 +142,13 @@ export class PacientesComponent {
         
 
         this.paciente.documento = resp["documento"];
-        this.paciente.id= resp["id"];
-        this.paciente.primerNombre = resp["primerNombre"];
-        this.paciente.segundoNombre = resp["segundoNombre"];
-        this.paciente.primerApellido= resp["primerApellido"];
-        this.paciente.segundoApellido=resp["segundoApellido"];
+        this.paciente.id= resp["consecutivo"];
+        this.paciente.nombre = resp["paciente"];
+        this.paciente.fechaIngreso= resp["fechaIngreso"];
+        this.paciente.estadoIngreso = resp["estadoIngreso"];
         this.buscando = false;
         console.log("Patient found correctly");
+        this.mostrarTabla = true;
         
       }, 2000); 
     

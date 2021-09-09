@@ -13,13 +13,13 @@ export class CamasService {
 
   constructor(private http:HttpClient) { }
 
-  findCamaGrupoSubgrupoTipo(grupo:number, subgrupo:number, tipo:number){
+  findCamaGrupoSubgrupoTipo(grupo:string, subgrupo:string, tipo:string){
 
     return this.http.get(`${this.urlCamas}/find/grupo=${grupo}/subgrupo=${subgrupo}/tipo=${tipo}`);
 
   }
 
-  findCamaGrupoSubgrupo(grupo:number, subgrupo:number){
+  findCamaGrupoSubgrupo(grupo:string, subgrupo:string){
 
 
     return this.http.get(`${this.urlCamas}/find/grupo=${grupo}/subgrupo=${subgrupo}`);
@@ -38,7 +38,7 @@ export class CamasService {
 
   }
 
-  findSubgrupoWithGrupoOID(grupo:number){
+  findSubgrupoWithGrupoOID(grupo:string){
 
     return this.http.get(`${this.urlSubrupos}/find/grupo=${grupo}`);
 
@@ -57,7 +57,7 @@ export class CamasService {
 
   }
 
-  findTiposCamasWithGrupoSubgrupoOID(grupo:number,subgrupo:number){
+  findTiposCamasWithGrupoSubgrupo(grupo:string,subgrupo:string){
 
 
     return this.http.get(`${this.urlTipoCama}/find/grupo=${grupo}&subgrupo=${subgrupo}`);

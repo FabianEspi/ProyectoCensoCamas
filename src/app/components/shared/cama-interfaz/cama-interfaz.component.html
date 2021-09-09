@@ -44,9 +44,9 @@
 
             <h6 class=" "> Tipo De Cama:</h6>
 
-            <select class="form-select " aria-label=".form-select-lg example " (click)="findAllTipodeCama()">
+            <select #tipos class="form-select " aria-label=".form-select-lg example " (click)="findTiposCamasWithGrupoSubgrupo(grupo.value, subgrupos.value)">
           
-                <option selected > Escoja Tipo(Opcional) ...</option> 
+                <option value="defecto" selected > Escoja Tipo(Opcional) ...</option> 
                 <option  *ngFor="let tipo of tipito" >{{tipo}} </option>
             
               
@@ -67,7 +67,7 @@
     <div class="boton-buscar mt-3">
 
 
-        <a (click)="findCamaGrupoSubgrupoTipo(4,1,1)">
+        <a (click)="findCamaGrupoSubgrupoTipo(grupo.value,subgrupos.value,tipos.value)">
 
 
             <div>
@@ -86,11 +86,37 @@
     <div *ngIf="!cargando ">
 
 
-        <h5>{{tipoCama}}</h5>
+        <div class="container mt-5 tarjetas_traslado">
 
-        <div class="container mt-5">
 
-            <div *ngFor="let camas of camitas" class="item">`Codigo:{{camas.codigoCama}} estado:{{camas.estadoCama}} url:{{camas.URL}}` </div>
+
+
+            <div *ngFor="let camas of camitas" class="item text-center" (click)="seleccionarCama(camas)">
+
+
+
+                <div class="row">
+
+                    <div class="col">
+
+                        <img [src]="camas.URL" alt="Estado">
+
+                    </div>
+                    <div class="col mt-2">
+
+
+                        <h6>Codigo:{{camas.codigo}}</h6>
+                        <h6> estado:{{camas.estado}}</h6>
+
+
+
+
+                    </div>
+                </div>
+
+
+
+            </div>
 
         </div>
     </div>
@@ -98,7 +124,7 @@
 
     <div>
 
-        <div class="alert alert-warning text-center mt-3" *ngIf="nodata">
+        <div class="alert alert-warning text-center mt-3" *ngIf="nodata && !cargando">
 
             <h4 class="alert-heading ">No se encontraron registros</h4>
 
@@ -117,7 +143,7 @@
 
     <div>
 
-        <div class="alert alert-info text-center " *ngIf="cargando">
+        <div class="alert alert-info text-center mt-3 " *ngIf="cargando">
 
 
 

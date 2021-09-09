@@ -7,7 +7,8 @@ import { Injectable } from '@angular/core';
 })
 export class PacientesService {
 
-  private url = 'http://172.16.33.100:8080/pacientes'
+  private urlPacientes = 'http://172.16.33.100:8080/pacientes';
+  private urlIngresos = 'http://172.16.33.100:8080/ingreso';
 
   constructor(private http: HttpClient) { }
 
@@ -18,7 +19,7 @@ export class PacientesService {
 
     
     
-    return this.http.get(`${this.url}/find/${ingreso}`);
+    return this.http.get(`${this.urlPacientes}/find/${ingreso}`);
 
     
 
@@ -27,15 +28,24 @@ export class PacientesService {
   findPacientByDocument(documento:string) {
 
 
-    return this.http.get(`${this.url}/encontrar/documento/${documento}`);
+    return this.http.get(`${this.urlPacientes}/encontrar/documento/${documento}`);
 
   }
 
- /*  findPacientByName(nombre:String ) {
+  findPacientIngresoById(ingreso:string){
 
-    this.http.get(`${this.url}/encontrar/documento/${nombre}`)
 
-  } */
+    return this.http.get(`${this.urlIngresos}/find/id=${ingreso}`);
+
+  }
+
+  findPacientIngresoByDocument(documento:string){
+
+
+    return this.http.get(`${this.urlIngresos}/find/documento=${documento}`);
+
+  }
+
 
  
 

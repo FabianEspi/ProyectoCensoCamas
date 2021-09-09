@@ -97,18 +97,18 @@
                 <th scope="col ">No. Cedula</th>
                 <th scope="col ">No. Ingreso</th>
                 <th scope="col ">Nombres</th>
-                <th scope="col ">Apellidos</th>
                 <th scope="col ">Ultimo Ingreso</th>
+                <th scope="col ">EstadoIngreso</th>
                 <th scope="col ">Accion</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <th>{{paciente.documento}}</th>
+                <td>{{paciente.documento}}</td>
                 <td>{{paciente.id}}</td>
-                <td>{{paciente.primerNombre + " "+paciente.segundoNombre}}</td>
-                <td>{{paciente.primerApellido +" "+paciente.segundoApellido}}</td>
-                <td></td>
+                <td>{{paciente.nombre}}</td>
+                <td>{{paciente.fechaIngreso}}</td>
+                <td>{{paciente.estadoIngreso}}</td>
                 <td>
                     <a class="button" (click)="seleccionarPaciente(paciente.documento,paciente.id)"> <i class="fas fa-user-check icon-button"></i> </a>
                 </td>
@@ -139,18 +139,18 @@
                     <th scope="col ">No. Cedula</th>
                     <th scope="col ">No. Ingreso</th>
                     <th scope="col ">Nombres</th>
-                    <th scope="col ">Apellidos</th>
                     <th scope="col ">Fecha de Ingreso</th>
+                    <th scope="col ">Estado</th>
                     <th scope="col ">Accion</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <th>{{paciente.documento}}</th>
+                    <td>{{paciente.documento}}</td>
                     <td>{{paciente.id}}</td>
-                    <td>{{paciente.primerNombre + " "+paciente.segundoNombre}}</td>
-                    <td>{{paciente.primerApellido +" "+paciente.segundoApellido}}</td>
-                    <td></td>
+                    <td>{{paciente.nombre}} </td>
+                    <td>{{paciente.fechaIngreso}}</td>
+                    <td>{{paciente.estadoIngreso}}</td>
                     <td>
                         <a style="cursor: pointer;" class="button" (click)="cancelarpaciente()"> <i class="fas fa-times"></i> </a>
                     </td>
