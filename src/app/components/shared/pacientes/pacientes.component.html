@@ -2,20 +2,23 @@
 
     <h3 *ngIf="!pacienteSeleccionado"><u>SELECCIÓN DE PACIENTES</u></h3>
 
-    <p class="mt-3" style="color: black;" *ngIf="!pacienteSeleccionado"> Por favor Ingrese Los Filtros de Busqueda para seleccionar el paciente</p>
+    <p class="mt-3" style="color: black;" *ngIf="!pacienteSeleccionado"> Por favor Ingrese Los Filtros de Busqueda para
+        seleccionar el paciente</p>
 
 
     <div class="filter" *ngIf="!pacienteSeleccionado">
 
         <h6 class="mt-3"> Filtro de busqueda:</h6>
-        <select #opcion class="form-select " aria-label=".form-select-lg example" (click)="optionSelectedName(opcion.value)" (click)="optionSelectedDocument(opcion.value)" (click)="optionSelectedIngreso(opcion.value)">
-            
-            
+        <select #opcion class="form-select " aria-label=".form-select-lg example"
+            (click)="optionSelectedName(opcion.value)" (click)="optionSelectedDocument(opcion.value)"
+            (click)="optionSelectedIngreso(opcion.value)">
+
+
             <option value="identificacion">No. Identificacion</option>
             <option value="ingreso">No. Ingreso</option>
             <!-- <option value="nombre">Nombre</option> -->
-            
-          </select>
+
+        </select>
 
 
 
@@ -30,14 +33,16 @@
 
             <h6>Por favor Ingrese su informacion
             </h6>
-            <input #ingreso type="number" (keyup.enter)="findPacientByIngreso(ingreso.value)" class="form-control" placeholder="Buscar Paciente por No de Ingreso">
+            <input #ingreso type="number" (keyup.enter)="findPacientByIngreso(ingreso.value)" class="form-control"
+                placeholder="Buscar Paciente por No de Ingreso">
         </div>
 
         <div class="filter-label mt-3 " *ngIf="valorDocumento">
 
             <h6>Por favor Ingrese su informacion
             </h6>
-            <input #documento type="number" (keyup.enter)="findPacientByDocument(documento.value)" class="form-control" placeholder="Buscar Paciente por No de Identificacion">
+            <input #documento type="number" (keyup.enter)="findPacientByDocument(documento.value)" class="form-control"
+                placeholder="Buscar Paciente por No de Identificacion">
         </div>
 
 
@@ -110,7 +115,8 @@
                 <td>{{paciente.fechaIngreso}}</td>
                 <td>{{paciente.estadoIngreso}}</td>
                 <td>
-                    <a class="button" (click)="seleccionarPaciente(paciente.documento,paciente.id)"> <i class="fas fa-user-check icon-button"></i> </a>
+                    <a class="button" (click)="seleccionarPaciente(paciente.documento,paciente.id)"> <i
+                            class="fas fa-user-check icon-button"></i> </a>
                 </td>
             </tr>
 
@@ -127,7 +133,7 @@
 
 
 
-    <div class="mt-5 tabla-seleccionado">
+    <div class="mt-5 tabla-seleccionado" *ngIf="!mostrarTabla && !buscando && pacienteSeleccionado">
         <h3><u>PACIENTE SELECCIONADO:</u> <i class="fas fa-user-check"></i></h3>
 
         <p class="mt-4" style="color: black;"> Paciente Seleccionado correctamente con la siguiente informacion:</p>
@@ -152,7 +158,8 @@
                     <td>{{paciente.fechaIngreso}}</td>
                     <td>{{paciente.estadoIngreso}}</td>
                     <td>
-                        <a style="cursor: pointer;" class="button" (click)="cancelarpaciente()"> <i class="fas fa-times"></i> </a>
+                        <a style="cursor: pointer;" class="button" (click)="cancelarpaciente()"> <i
+                                class="fas fa-times"></i> </a>
                     </td>
                 </tr>
 
@@ -165,7 +172,7 @@
 
 
 
-        <app-cama-interfaz></app-cama-interfaz>
+        <app-cama-interfaz [paciente]="paciente"></app-cama-interfaz>
 
 
 

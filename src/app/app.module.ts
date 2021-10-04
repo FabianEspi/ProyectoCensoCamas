@@ -24,6 +24,7 @@ import { NavbarLoginComponent } from './components/shared/navbar-login/navbar-lo
 
 import { CamasComponent } from './components/camas/camas/camas.component';
 import { CamaInterfazComponent } from './components/shared/cama-interfaz/cama-interfaz.component';
+import { PacientesEgresoComponent } from './components/shared/pacientes-egreso/pacientes-egreso.component';
 
 
 
@@ -48,7 +49,8 @@ import { CamaInterfazComponent } from './components/shared/cama-interfaz/cama-in
     PacientesComponent,
     NavbarLoginComponent,
     CamasComponent,
-    CamaInterfazComponent
+    CamaInterfazComponent,
+    PacientesEgresoComponent
     ],
   imports: [
     BrowserModule,

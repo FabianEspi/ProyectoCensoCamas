@@ -10,60 +10,67 @@ export class CamasService {
   private urlGrupos = 'http://172.16.33.100:8080/grupo';
   private urlSubrupos = 'http://172.16.33.100:8080/subgrupo';
   private urlTipoCama = 'http://172.16.33.100:8080/tipocama';
+  private urlIngreso = 'http://172.16.33.100:8080/ingreso'
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  findCamaGrupoSubgrupoTipo(grupo:string, subgrupo:string, tipo:string){
+  findCamaGrupoSubgrupoTipo(grupo: string, subgrupo: string, tipo: string) {
 
     return this.http.get(`${this.urlCamas}/find/grupo=${grupo}/subgrupo=${subgrupo}/tipo=${tipo}`);
 
   }
 
-  findCamaGrupoSubgrupo(grupo:string, subgrupo:string){
+  findCamaGrupoSubgrupo(grupo: string, subgrupo: string) {
 
 
     return this.http.get(`${this.urlCamas}/find/grupo=${grupo}/subgrupo=${subgrupo}`);
 
   }
 
-  findAllGrupos(){
+  findAllGrupos() {
 
     return this.http.get(`${this.urlGrupos}/all`);
   }
 
-  findGrupoWithNombre(nombre:string){
+  findGrupoWithNombre(nombre: string) {
 
     return this.http.get(`${this.urlGrupos}/find/nombre=${nombre}`);
 
 
   }
 
-  findSubgrupoWithGrupoOID(grupo:string){
+  findSubgrupoWithGrupoOID(grupo: string) {
 
     return this.http.get(`${this.urlSubrupos}/find/grupo=${grupo}`);
 
   }
 
-  findAllTipodeCama(){
+  findAllTipodeCama() {
 
     return this.http.get(`${this.urlTipoCama}/all`);
   }
 
 
-  findOIDTipoCamaWithName(nameTipo:string){
+  findOIDTipoCamaWithName(nameTipo: string) {
 
 
     return this.http.get(`${this.urlTipoCama}/find/nombre=${nameTipo}`);
 
   }
 
-  findTiposCamasWithGrupoSubgrupo(grupo:string,subgrupo:string){
+  findTiposCamasWithGrupoSubgrupo(grupo: string, subgrupo: string) {
 
 
     return this.http.get(`${this.urlTipoCama}/find/grupo=${grupo}&subgrupo=${subgrupo}`);
   }
 
-  
+
+  trasladoPaciente(ingreso: string, codigoCama: string) {
+
+
+    return this.http.put(`${this.urlIngreso}/update/ingreso=${ingreso}/cama=${codigoCama}`, null);
+  }
+
 
 }
- 
+

@@ -13,33 +13,40 @@ export class PacientesService {
   constructor(private http: HttpClient) { }
 
 
-  
+  liberarPaciente(id: string) {
 
-  findPacientByIngreso(ingreso:string) {
 
-    
-    
-    return this.http.get(`${this.urlPacientes}/find/${ingreso}`);
-
-    
+    return this.http.put(`${this.urlIngresos}/update/ingreso=${id}`, null)
 
   }
 
-  findPacientByDocument(documento:string) {
+
+
+  findPacientByIngreso(ingreso: string) {
+
+
+
+    return this.http.get(`${this.urlPacientes}/find/${ingreso}`);
+
+
+
+  }
+
+  findPacientByDocument(documento: string) {
 
 
     return this.http.get(`${this.urlPacientes}/encontrar/documento/${documento}`);
 
   }
 
-  findPacientIngresoById(ingreso:string){
+  findPacientIngresoById(ingreso: string) {
 
 
     return this.http.get(`${this.urlIngresos}/find/id=${ingreso}`);
 
   }
 
-  findPacientIngresoByDocument(documento:string){
+  findPacientIngresoByDocument(documento: string) {
 
 
     return this.http.get(`${this.urlIngresos}/find/documento=${documento}`);
@@ -47,7 +54,7 @@ export class PacientesService {
   }
 
 
- 
+
 
 
 
