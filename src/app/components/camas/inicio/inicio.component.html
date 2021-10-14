@@ -1,35 +1,24 @@
+<!-- Pantalla de Inicio al Loguearse -->
+
 <div class="wrapper">
-
     <hr>
-
     <h1>SOFTWARE PARA ADMINISTRACIÓN DE CAMAS</h1>
-
     <h4 class="mt-3">Servicio para el mejoramiento de atención a pacientes</h4>
-
     <hr>
-
-
 
     <div class=" container wrapper-bottons mt-5">
-
         <div class="row">
-
-
             <div class="col boton-camas">
-
                 <a [routerLink]="['/camas/traslado']">
                     <div>
                         Trasladar
-
                     </div>
                 </a>
-
             </div>
             <div class="col boton-camas">
                 <a [routerLink]="['/camas/egreso']">
                     <div>
                         Liberar
-
                     </div>
                 </a>
             </div>
@@ -42,330 +31,173 @@
                 </a>
             </div>
         </div>
-
-
-
-
-
     </div>
 
     <div class="cuerpo-inicial mt-5 animate__animated  animate__backInLeft" id="text-Traslado">
-
         <div class="row ">
             <div class="col mt-5">
-
                 <img src="../../../../assets/img/Camasinicio.png" a>
-
             </div>
             <div class="col mt-5 body-inicial">
-
                 <h4>GESTION DE CAMAS HOSPITALARIAS</h4>
-
                 <hr>
-
                 <p>Optimiza los procesos, recursos y mejora la atencion del paciente en el Hospital universitario de
                     Santander, mediante un prototipo de software que permite la administracion de camas mediante
                     distintos procesos internos de la institucion
-                    ayudando al paciente a tener un servicio de calidad
+                    ayudando al paciente a tener un servicio de calidad </p>
 
-
+                <!-- Botones de Navegación -->
                 <div class="wrapper-services">
-
                     <div class="container">
-
-
-
                         <div class="row">
-
-
                             <div class="col">
                                 <a href="camas/inicio#text-Traslado">
                                     <div>
-
-
                                         <i class="fab fa-accessible-icon"></i>
                                         <h5>Traslado</h5>
-
                                     </div>
                                 </a>
-
                             </div>
-
-
-
                             <div class="col">
 
                                 <a href="camas/inicio#text-Egreso">
                                     <div>
-
                                         <i class="fas fa-door-open"></i>
                                         <h5>Egreso</h5>
-
-
-
                                     </div>
                                 </a>
                             </div>
                             <div class="col">
-
                                 <a href="camas/inicio#text-Censo">
                                     <div>
-
                                         <i class="fas fa-clipboard-list"></i>
-
                                         <h5>Censo</h5>
                                     </div>
                                 </a>
                             </div>
-
                         </div>
                     </div>
-
-
-
                 </div>
             </div>
         </div>
-
-
     </div>
 
 
-
-
-
-
-
+    <!-- Cuerpo de seccion inicio de camas -->
 
     <div class="cuerpo-inicial mt-5 animate__animated  animate__backInRight" id="text-Egreso">
-
         <div class="row">
-
-
             <div class="col mt-5 body-inicial ml-5">
-
                 <h4>TRASLADOS</h4>
                 <hr>
-
                 <p> Servicio encargado de asignacion de camas a pacientes, en el cual se administra la disponibilidad de
                     camas, permitiendo un mejor control en tiempo real.</p>
 
                 <div class="wrapper-services">
-
                     <div class="container">
-
-
-
                         <div class="row">
-
-
                             <div class="col">
-
                                 <div>
-
-
                                     <i class="fas fa-clipboard-check"></i>
                                     <h5>Eficiencia</h5>
-
                                 </div>
-
                             </div>
-
-
-
                             <div class="col">
-
-
                                 <div>
-
                                     <i class="fas fa-book-reader"></i>
                                     <h5>Control</h5>
-
-
-
                                 </div>
-
                             </div>
                             <div class="col">
-
-
                                 <div>
-
                                     <i class="fas fa-clipboard-list"></i>
-
                                     <h5>Disponibilidad</h5>
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
-
-
-
                 </div>
-
-
             </div>
-
             <div class="col mt-5">
-
-
                 <img src="../../../../assets/img/gestion-turnos-rotativos-1.png">
-
             </div>
-
-
         </div>
-
     </div>
 
     <div class="cuerpo-inicial mt-5 animate__animated  animate__backInLeft" id="text-Censo">
-
         <div class="row">
             <div class="col mt-5 img1">
-
                 <img src="../../../../assets/img/Optimizacion-recursos-humanos.png" a>
-
             </div>
             <div class="col mt-5 body-inicial">
-
                 <h4>EGRESOS</h4>
                 <hr>
-
                 <p> Servicio encargado de liberar pacientes que estan proximos a salir para dejar disponible la cama que
                     estaba en uso para otro paciente </p>
-
                 <div class="wrapper-services">
-
                     <div class="container">
-
-
-
                         <div class="row">
-
-
                             <div class="col">
-
                                 <div>
-
-
                                     <i class="fas fa-clipboard-list"></i>
                                     <h5>Escalabilidad</h5>
-
                                 </div>
-
                             </div>
-
-
-
                             <div class="col">
-
-
                                 <div>
-
                                     <i class="fas fa-user-check"></i>
                                     <h5>Asignación</h5>
-
-
-
                                 </div>
-
                             </div>
                             <div class="col">
-
-
                                 <div>
-
                                     <i class="fas fa-clipboard-check"></i>
-
                                     <h5>Eficiencia</h5>
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
-
     </div>
 
     <div class="cuerpo-inicial mt-5 animate__animated  animate__backInRight">
-
         <div class="row">
             <div class="col mt-5">
-
                 <h4>CENSOS</h4>
                 <hr>
-
                 <p> Servicio encargado de proporcionar a la instucion un analisis mediante un censo para observar la
                     disponibilidad que se tenga a cualquier hora, permitiendo tomar mejores decisiones.</p>
-
                 <div class="wrapper-services">
-
                     <div class="container">
-
-
-
                         <div class="row">
-
-
                             <div class="col">
-
                                 <div>
-
-
                                     <i class="fas fa-clipboard-check"></i>
                                     <h5>Tiempo Real</h5>
-
                                 </div>
-
                             </div>
-
-
-
                             <div class="col">
-
-
                                 <div>
-
                                     <i class="fas fa-book-reader"></i>
                                     <h5>Mejores Decisiones</h5>
-
-
-
                                 </div>
-
                             </div>
                             <div class="col">
-
-
                                 <div>
-
                                     <i class="fas fa-clipboard-list"></i>
-
                                     <h5>Escalabilidad</h5>
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                 </div>
-
-
             </div>
             <div class="col mt-5 body-inicial">
-
-
                 <img src="../../../../assets/img/CENSO.png">
             </div>
         </div>
-
     </div>
 
 </div>

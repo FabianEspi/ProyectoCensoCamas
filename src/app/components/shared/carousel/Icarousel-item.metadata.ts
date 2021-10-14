@@ -1,10 +1,9 @@
-export interface ICarouselItem{
-
+export interface ICarouselItem {
     id: number;
     title?: {
 
-            first: string;
-            second: string
+        first: string;
+        second: string
     };
 
     subtitle?: string;
@@ -12,5 +11,4 @@ export interface ICarouselItem{
     image: string;
     order?: number;
     marginLeft?: number;
-
 }

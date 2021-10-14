@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-egreso',
   templateUrl: './egreso.component.html',
   styleUrls: ['./egreso.component.css']
 })
-export class EgresoComponent implements OnInit {
+export class EgresoComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

@@ -163,6 +163,7 @@ export class CensoComponent {
       }
 
 
+
       if (this.camitas.length === 0 && tipo != "defecto") {
 
         setTimeout(() => {

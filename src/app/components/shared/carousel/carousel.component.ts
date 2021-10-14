@@ -13,7 +13,7 @@ export class CarouselComponent implements OnInit {
   @Input() isFullScreen = false;
   @Input() items: ICarouselItem[] = [];
 
-  public finalHeight: string|number = 0;
+  public finalHeight: string | number = 0;
   public currentPosition = 0;
 
   constructor() {
@@ -21,7 +21,7 @@ export class CarouselComponent implements OnInit {
     this.finalHeight = this.isFullScreen ? '100vh' : `${this.height}px `;
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.items.map((i, index) => {
       i.id = index;
       i.marginLeft = 0;
@@ -29,20 +29,18 @@ export class CarouselComponent implements OnInit {
     this.setInterval();
   }
 
-
-
-  setCurrentPosition(position: number){
+  setCurrentPosition(position: number) {
 
     this.currentPosition = position;
     this.items.find(i => i.id === 0).marginLeft = -100 * position;
   }
 
-  setNext(){
+  setNext() {
 
     let finalPercentage = 0;
     let nextPosition = this.currentPosition + 1;
 
-    if (nextPosition <= this.items.length - 1){
+    if (nextPosition <= this.items.length - 1) {
 
       finalPercentage = -100 * nextPosition;
 
@@ -55,12 +53,12 @@ export class CarouselComponent implements OnInit {
     this.currentPosition = nextPosition;
   }
 
-  setBack(){
+  setBack() {
 
     let finalPercentage = 0;
     let backPosition = this.currentPosition - 1;
 
-    if (backPosition >= 0){
+    if (backPosition >= 0) {
 
       finalPercentage = -100 * backPosition;
 
@@ -74,23 +72,21 @@ export class CarouselComponent implements OnInit {
     this.currentPosition = backPosition;
   }
 
-  setInterval(){
+  setInterval() {
 
-   
-    for(let i = 0; i < 10; i++){
+
+    for (let i = 0; i < 10; i++) {
 
       setTimeout(() => {
-      
-        
         // tslint:disable-next-line: no-unused-expression
-      this.setNext();
-  
-       }, 1500);
+        this.setNext();
 
-      
+      }, 1500);
+
+
     }
 
-   
+
   }
 
 }

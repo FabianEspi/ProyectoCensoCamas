@@ -1,5 +1,4 @@
-import { NgSwitch } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,26 +6,15 @@ import { Router } from '@angular/router';
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.css']
 })
-export class InicioCamasComponent implements OnInit {
+export class InicioCamasComponent {
 
-  valor : String;
-  constructor(private router:Router) { }
-
-  ngOnInit(): void {
-  }
+  valor: String;
+  constructor(private router: Router) { }
 
 
-  NavegarCENSO(){
-
+  NavegarCENSO() {
     this.router.navigateByUrl("../traslado/traslado.html");
-    
   }
 
-  NavegacionesID(valor:String){
-    
-   
-
-
-  }
 
 }
