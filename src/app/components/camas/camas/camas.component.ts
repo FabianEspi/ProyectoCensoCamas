@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-camas',
   templateUrl: './camas.component.html',
   styleUrls: ['./camas.component.css']
 })
-export class CamasComponent implements OnInit {
+export class CamasComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

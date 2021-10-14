@@ -17,34 +17,34 @@ import { Router } from '@angular/router';
 export class PacientesComponent {
 
 
- 
-  paciente:PacienteModel = new PacienteModel(); 
-  pacientes:PacienteModel[];
 
-  
-  valorName:boolean;
+  paciente: PacienteModel = new PacienteModel();
+  pacientes: PacienteModel[];
+
+
+  valorName: boolean;
   valorIngreso: boolean;
-  valorDocumento:boolean;
-  buscando:boolean = false;
-  noData:boolean = false;
-  pacienteSeleccionado:boolean;
-  mostrarTabla:boolean = false;
-  
+  valorDocumento: boolean;
+  buscando: boolean = false;
+  noData: boolean = false;
+  pacienteSeleccionado: boolean;
+  mostrarTabla: boolean = false;
 
-  constructor(private pacientesService:PacientesService, private http:HttpClient, private router:Router) {
+
+  constructor(private pacientesService: PacientesService, private http: HttpClient, private router: Router) {
 
     this.pacienteSeleccionado = false;
-   
-   }
+
+  }
 
 
 
-  
 
-  
-  
 
- 
+
+
+
+
   /* findPacientByName(nombre:string){
 
 
@@ -57,12 +57,12 @@ export class PacientesComponent {
 
   } */
 
-  findPacientByIngreso(ingreso:string ) {
+  findPacientByIngreso(ingreso: string) {
 
     this.buscando = true;
     this.noData = false;
-    this.mostrarTabla=false;
-    
+    this.mostrarTabla = false;
+
     this.pacientesService.findPacientIngresoById(ingreso).subscribe(resp => {
 
       /* this.paciente.estadoIngreso = resp["estado"];
@@ -86,90 +86,120 @@ export class PacientesComponent {
 
       } else{
  */
-      
 
-      
+
+
 
       setTimeout(() => {
-        
-        
 
-        this.paciente.documento = resp["documento"];
-        this.paciente.id= resp["consecutivo"];
-        this.paciente.nombre = resp["paciente"];
-        this.paciente.fechaIngreso= resp["fechaIngreso"];
-        this.paciente.estadoIngreso = resp["estadoIngreso"];
 
-        this.buscando = false;
-        console.log("Patient found correctly");
-        this.mostrarTabla = true;
-        
-        
+        if (resp["estadoIngreso"] === 'Registrado') {
+
+          this.paciente.documento = resp["documento"];
+          this.paciente.id = resp["consecutivo"];
+          this.paciente.nombre = resp["paciente"];
+          this.paciente.fechaIngreso = resp["fechaIngreso"];
+          this.paciente.estadoIngreso = resp["estadoIngreso"];
+
+          this.buscando = false;
+          console.log("Patient found correctly");
+          this.mostrarTabla = true;
+
+        } else {
+
+          Swal.fire({
+            icon: 'error',
+            title: `El paciente seleccionado se encuentra en un estado Incorrecto (ESTADO: ${resp["estadoIngreso"]} ) `,
+
+            confirmButtonColor: '#3085d6',
+
+            confirmButtonText: 'Aceptar'
+          })
+          this.buscando = false;
+
+
+        }
       }, 2000);
 
-   /*  } */
-      
+      /*  } */
 
-    },(err)=>{
+
+    }, (err) => {
 
       this.mostrarTabla = false;
-      this.buscando=false;
+      this.buscando = false;
       this.noData = true;
 
 
     });
-    
-    
+
+
 
   }
 
-  findPacientByDocument(documento:string ) {
+  findPacientByDocument(documento: string) {
 
 
     this.buscando = true;
     this.noData = false;
-    this.mostrarTabla=false;
+    this.mostrarTabla = false;
 
     this.pacientesService.findPacientIngresoByDocument(documento).subscribe(resp => {
 
-      
 
-      
-     
+
+
+
       setTimeout(() => {
 
-       
-        
 
-        this.paciente.documento = resp["documento"];
-        this.paciente.id= resp["consecutivo"];
-        this.paciente.nombre = resp["paciente"];
-        this.paciente.fechaIngreso= resp["fechaIngreso"];
-        this.paciente.estadoIngreso = resp["estadoIngreso"];
-        this.buscando = false;
-        console.log("Patient found correctly");
-        this.mostrarTabla = true;
-        
-      }, 2000); 
-    
-    },(err)=>{
 
-      
-      this.buscando=false;
+
+        if (resp["estadoIngreso"] === 'Registrado') {
+
+          this.paciente.documento = resp["documento"];
+          this.paciente.id = resp["consecutivo"];
+          this.paciente.nombre = resp["paciente"];
+          this.paciente.fechaIngreso = resp["fechaIngreso"];
+          this.paciente.estadoIngreso = resp["estadoIngreso"];
+          this.buscando = false;
+          console.log("Patient found correctly");
+          this.mostrarTabla = true;
+        } else {
+
+          Swal.fire({
+            icon: 'error',
+            title: `El paciente seleccionado se encuentra en un estado Incorrecto (ESTADO: ${resp["estadoIngreso"]} ) `,
+
+            confirmButtonColor: '#3085d6',
+
+            confirmButtonText: 'Aceptar'
+          })
+          this.buscando = false;
+        }
+
+
+
+      }, 2000);
+
+    }, (err) => {
+
+
+      this.buscando = false;
       this.noData = true;
 
 
     });
-    
+
 
 
   }
 
-  seleccionarPaciente(documento:string, id:string){
+  seleccionarPaciente(documento: string, id: string) {
 
     Swal.fire({
       title: '¿Esta seguro de escoger este paciente?',
-      text: " Ingreso: "+id+ " Documento: "+documento ,
+      text: " Ingreso: " + id + " Documento: " + documento,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#264285',
@@ -182,67 +212,67 @@ export class PacientesComponent {
           'El paciente ha sido seleccionado',
           'success'
         )
-      
-        this.pacienteSeleccionado= true;
+
+        this.pacienteSeleccionado = true;
         this.mostrarTabla = false;
         console.log("Patient selected correctly");
       }
     })
 
-    
+
   }
 
 
-  
-  cancelarpaciente(){
 
-      this.pacienteSeleccionado = false;
-    
-    
+  cancelarpaciente() {
+
+    this.pacienteSeleccionado = false;
+
+
   }
 
 
-  public optionSelectedName(valor:string){
-  
+  public optionSelectedName(valor: string) {
 
-    if(valor==="nombre"){
+
+    if (valor === "nombre") {
 
       this.valorName = true;
-    } else{
+    } else {
 
       this.valorName = false;
     }
-   
+
   }
 
-  public optionSelectedDocument(valor:string){
-  
+  public optionSelectedDocument(valor: string) {
 
-    if(valor==="identificacion"){
+
+    if (valor === "identificacion") {
 
       this.valorDocumento = true;
-    } else{
+    } else {
 
       this.valorDocumento = false;
     }
-   
+
   }
 
-  public optionSelectedIngreso(valor:string){
-    
+  public optionSelectedIngreso(valor: string) {
 
-    if(valor==="ingreso"){
+
+    if (valor === "ingreso") {
 
       this.valorIngreso = true;
-    } else{
+    } else {
 
       this.valorIngreso = false;
     }
-   
+
   }
 
-  
 
-  
+
+
 
 }

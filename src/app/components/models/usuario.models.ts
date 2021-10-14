@@ -1,8 +1,6 @@
+export class UsuarioModel {
 
-export class UsuarioModel{
-
-      
        Username: string;
        Contrasena: string;
-    
+
 }

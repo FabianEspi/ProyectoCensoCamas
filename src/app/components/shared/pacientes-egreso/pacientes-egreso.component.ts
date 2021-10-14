@@ -40,7 +40,7 @@ export class PacientesEgresoComponent {
 
     Swal.fire({
       icon: 'warning',
-      title: '¿Esta Seguro de Seleccionar esta Cama?',
+      title: '¿Esta Seguro de Liberar este paciente?',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
@@ -49,10 +49,30 @@ export class PacientesEgresoComponent {
 
       if (result.isConfirmed) {
         this.pacientesService.liberarPaciente(id).subscribe(resp => {
-          console.log(resp);
+
+          Swal.fire({
+            icon: 'success',
+            title: 'Paciente Liberado Satisfactoriamente',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Aceptar'
+          })
           this.router.navigateByUrl("/camas/inicio");
 
-        })
+        }, (err) => {
+
+          Swal.fire({
+            icon: 'error',
+            title: '¡El paciente seleccionado no tiene una cama asignada!',
+
+            confirmButtonColor: '#3085d6',
+
+            confirmButtonText: 'Aceptar'
+          })
+        }
+
+        )
 
       }
 

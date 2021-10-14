@@ -1,5 +1,8 @@
+<!-- Estrcutura Seccion CENSO -->
+
 <div class="wrapper">
 
+    <!-- Encabezado -->
 
     <div class="button">
 
@@ -10,12 +13,9 @@
             </div>
         </a>
 
-
-
     </div>
 
     <div class=" text-center">
-
 
         <hr>
 
@@ -25,39 +25,23 @@
 
         <hr>
 
-
     </div>
 
-    <!-- CUERPO DE CENSO -->
+    <!-- FILTRO DE CAMAS -->
 
     <h3 class="mt-5"><u> SELECCIÓN DE FILTRO PARA BUSQUEDA</u></h3>
-
     <div>
-
         <div class="row">
-
             <p class="mt-4 ml-1"> A continuacion, se encuentra la interfaz grafica para censo de camas en el Hospital
                 Universitario de Santander, Por favor Ingrese los siguientes filtros para realizar su busqueda (Los
                 campos Grupo y Subgrupo son obligatorios). </p>
-
-
-
-
             <div class=" col ">
-
                 <h6 class=" "> Grupo:*</h6>
-
                 <select #grupo class="form-select " aria-label=".form-select-lg example" (click)="findAllCamas()">
-
                     <option selected> Escoja Grupo ...</option>
                     <option [value]=grupos *ngFor="let grupos of grupitos" (click)="findSubgrupoWithGrupo(grupo.value)">
                         {{grupos}} </option>
-
-
-
                 </select>
-
-
             </div>
 
             <div class="col ">
@@ -66,188 +50,84 @@
 
                 <select #subgrupos class="form-select " aria-label=".form-select-lg example"
                     (click)="findSubgrupoWithGrupo(grupo.value)">
-
                     <option selected> Escoja SubGrupo ...</option>
                     <option [value]=subgrupos *ngFor="let subgrupos of subgrupitos">{{subgrupos}} </option>
-
-
                 </select>
-
 
             </div>
 
             <div class="col ">
-
-
                 <h6 class=" "> Tipo De Cama:</h6>
-
                 <select #tipos class="form-select " aria-label=".form-select-lg example "
                     (click)="findTiposCamasWithGrupoSubgrupo(grupo.value, subgrupos.value)">
-
                     <option value="defecto" selected> Escoja Tipo(Opcional) ...</option>
                     <option *ngFor="let tipo of tipito">{{tipo}} </option>
-
-
                 </select>
-
-
-
-
-
-
-
-
-
             </div>
         </div>
 
-
         <div class="boton-buscar mt-3">
-
 
             <a (click)="findCamaGrupoSubgrupoTipo(grupo.value,subgrupos.value,tipos.value)">
 
-
                 <div>
                     <i class="fas fa-search"></i> Buscar
-
                 </div>
-
-
 
             </a>
 
         </div>
 
-
-
-
-
+        <!-- Interfaz de Camas y Generacion de PDFs -->
 
         <div *ngIf="!cargando">
-
-
-
             <div class="container mt-5 tarjetas_traslado">
-
-
-
-
                 <div *ngFor="let camas of camitas" class="item text-center" (click)="seleccionarCama(camas)">
-
-
-
-
-
                     <div class="row">
-
                         <div class="col">
-
                             <img [src]="camas.URL" alt="Estado">
-
                         </div>
                         <div class="col mt-2">
-
-
                             <h6>Codigo:{{camas.codigo}}</h6>
                             <h6> estado:{{camas.estado}}</h6>
-
-
-
-
                         </div>
-
-
                     </div>
-
-
                 </div>
-
-
-
-
-
-
-
-
-
             </div>
-
-
         </div>
 
         <div class="boton-buscar mt-3">
-
-
-            <a (click)="findCamaGrupoSubgrupoTipo(grupo.value,subgrupos.value,tipos.value)"
-                *ngIf="cargado && !cargando">
-
-
+            <a (click)="buildTableBody(grupo.value,subgrupos.value,tipos.value)" *ngIf="cargado && !cargando">
                 <div>
                     <i class="fas fa-file-pdf"></i> PDF
-
                 </div>
-
-
-
             </a>
-
         </div>
 
-
-
+        <!-- Mensajes informativos -->
 
         <div>
-
             <div class="alert alert-warning text-center mt-3" *ngIf="nodata && !cargando">
-
                 <h4 class="alert-heading ">No se encontraron registros</h4>
-
                 <p>
-
                     <i class="fa fa-exclamation fa-2x mt-3 "></i>
                 </p>
-
-
-
-
             </div>
-
         </div>
 
 
         <div>
-
             <div class="alert alert-info text-center mt-3 " *ngIf="cargando">
-
-
-
                 <h4 class="alert-heading ">Cargando</h4>
-
                 <p>
-
                     <i class="fa fa-sync-alt fa-spin fa-2x "></i>
                 </p>
-
                 <p class="mb-0 ">
-
                     Espere por Favor
-
                 </p>
-
-
             </div>
-
         </div>
 
-
-
-
-
-
     </div>
-
-
-
 
 </div>

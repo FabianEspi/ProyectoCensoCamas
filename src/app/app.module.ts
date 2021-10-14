@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { SampleModule } from 'angular-pdf-generator';
 
-import{HttpClientModule} from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
@@ -51,7 +52,7 @@ import { PacientesEgresoComponent } from './components/shared/pacientes-egreso/p
     CamasComponent,
     CamaInterfazComponent,
     PacientesEgresoComponent
-    ],
+  ],
   imports: [
     BrowserModule,
     NgbModule,
@@ -60,7 +61,7 @@ import { PacientesEgresoComponent } from './components/shared/pacientes-egreso/p
     HttpClientModule,
     APP_ROUTING,
     ReactiveFormsModule
-  
+
   ],
   providers: [],
   bootstrap: [AppComponent]
