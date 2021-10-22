@@ -24,7 +24,6 @@ export const CAROUSEL_DATA_ITEMS: ICarouselItem[] = [
         subtitle: ' ',
         link: '/',
         image: 'assets/img/p1.jpg'
-
     }
 
 ]

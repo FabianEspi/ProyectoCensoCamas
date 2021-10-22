@@ -66,9 +66,6 @@ table tbody i {
   margin-left: 40%;
 }
 
-
-
-
 .liberar:hover {
   background-color: green;
   color: white;
@@ -77,7 +74,6 @@ table tbody i {
   font-family: 'Poppins';
   cursor: pointer;
 }
-
 
 .liberar a,
 a:link,

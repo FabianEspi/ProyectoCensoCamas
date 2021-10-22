@@ -1,42 +1,41 @@
+<!-- Navbar Login -->
+
+<!-- Enlaces Informativos -->
 <div class="fixed-top">
-
-
     <div class="encabezado fixed-top">
-
-
-
         Siguenos en:
-        <a href="http://www.hus.gov.co/"> <i class="fas fa-h-square "> <div class="container iconos"> </div> </i> </a>
-        <a href="https://www.facebook.com/HUSantander/?ref=settings"> <i class="fab fa-facebook"> <div class="container iconos"> </div> </i> </a>
-        <a href="https://www.instagram.com/hospitalparalagente1/?hl=es-la"><i class="fab fa-instagram"> <div class="container iconos"> </div></i></a>
-        <a href="https://twitter.com/HUSantander"><i class="fab fa-twitter"> <div class="container iconos"> </div></i></a>
-        <a href="https://www.youtube.com/channel/UC6S87JGXWBDOas2G_9nDRYQ"><i class="fab fa-youtube"> <div class="container iconos"> </div></i> </a>
-
-
-
-
-
-
-
+        <a href="http://www.hus.gov.co/"> <i class="fas fa-h-square ">
+                <div class="container iconos"> </div>
+            </i> </a>
+        <a href="https://www.facebook.com/HUSantander/?ref=settings"> <i class="fab fa-facebook">
+                <div class="container iconos"> </div>
+            </i> </a>
+        <a href="https://www.instagram.com/hospitalparalagente1/?hl=es-la"><i class="fab fa-instagram">
+                <div class="container iconos"> </div>
+            </i></a>
+        <a href="https://twitter.com/HUSantander"><i class="fab fa-twitter">
+                <div class="container iconos"> </div>
+            </i></a>
+        <a href="https://www.youtube.com/channel/UC6S87JGXWBDOas2G_9nDRYQ"><i class="fab fa-youtube">
+                <div class="container iconos"> </div>
+            </i> </a>
     </div>
 
+    <!-- Imagen Encabezado -->
     <img class="mt-7 banner fixed-top" src="../../../../assets/img/Banner.jpg">
 
 
-
-
-
+    <!-- Botones de Navegación -->
     <nav class="navbar navbar-center navbar-expand-md navbar-dark scrolling-navbar fixed-top">
         <div class="container-fluid">
-
             <a class="navbar-brand" href="#">
-                <img src="../../../../assets/img/icon.png" alt="" width="30" height="24" class="d-inline-block align-text-top"> Camas/Camilleros
+                <img src="../../../../assets/img/icon.png" alt="" width="30" height="24"
+                    class="d-inline-block align-text-top"> Camas/Camilleros
             </a>
-
-
-            <button class="navbar-toggler" type="submit" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+            <button class="navbar-toggler" type="submit" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
             <div class="container enlaces">
 
@@ -45,10 +44,9 @@
             <div class="collapse navbar-collapse " id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="ml-3 nav-item" routerLinkActive="active">
-                        <a class="navbar-brand nav-link" aria-current="page" [routerLink]="['/camas/inicio']">Software Camas</a>
+                        <a class="navbar-brand nav-link" aria-current="page" [routerLink]="['/camas/inicio']">Software
+                            Camas</a>
                     </li>
-
-
                     <li class=" nav-item " routerLinkActive="active">
                         <a class="navbar-brand nav-link" [routerLink]="[]">Software Camilleros</a>
                     </li>
@@ -57,11 +55,8 @@
         </div>
     </nav>
 
-
     <div class="d-grid gap-2 d-md-flex justify-content-md-end  ingreso">
-
         <h6 class="name_ingreso">Fabian Alberto Espitia Muñoz</h6>
-
         <a class="btn btn-link link-ingreso" (click)="logout()">
             Salir <i class="fas fa-angle-down icon-ingresar"></i></a>
     </div>

@@ -1,17 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-traslado',
   templateUrl: './traslado.component.html',
   styleUrls: ['./traslado.component.css']
 })
-export class TrasladoComponent implements OnInit {
-
-  
+export class TrasladoComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

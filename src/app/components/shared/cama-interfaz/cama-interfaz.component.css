@@ -22,7 +22,7 @@ h3 {
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
     color: #fff;
     flex: none;
-    width: calc((100% - 30px)/4);
+    width: calc((100% - 30px)/5);
     margin-bottom: 10px;
     display: flex;
     justify-content: center;
@@ -59,4 +59,8 @@ a div:hover {
 .boton-buscar {
     display: flex;
     justify-content: center;
+}
+
+.tarjeta-cuerpo{
+    margin: 2px;
 }

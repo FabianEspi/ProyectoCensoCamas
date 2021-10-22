@@ -6,18 +6,12 @@ import { AuthService } from '../../../services/auth/auth.service';
   templateUrl: './navbar-login.component.html',
   styleUrls: ['./navbar-login.component.css']
 })
-export class NavbarLoginComponent  {
+export class NavbarLoginComponent {
 
+  constructor(private auth: AuthService) { }
 
-  
-
-  constructor(private auth:AuthService) { }
-
- 
-  logout(){
-
+  logout() {
     this.auth.logout();
-
   }
 
 }

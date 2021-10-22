@@ -37,14 +37,6 @@ export class PacientesComponent {
 
   }
 
-
-
-
-
-
-
-
-
   /* findPacientByName(nombre:string){
 
 
@@ -65,134 +57,99 @@ export class PacientesComponent {
 
     this.pacientesService.findPacientIngresoById(ingreso).subscribe(resp => {
 
-      /* this.paciente.estadoIngreso = resp["estado"];
-
-      if(this.paciente.estadoIngreso === "Cerrado"){
-
-        console.log("error");
-        Swal.fire({
-          title: 'El paciente Seleccionado se encuentra en estado CERRADO!',
-          text: " Ingreso: "+ingreso+ " Documento: "+ resp["paciente"]["documento"] ,
-          icon: 'info',
-          confirmButtonColor: '#264285',
-          confirmButtonText: 'Aceptar'
-        });
-        this.mostrarTabla = false;
-      this.buscando=false;
-      this.noData = true;
-    
-
-
-
-      } else{
- */
-
-
-
-
       setTimeout(() => {
 
-
         if (resp["estadoIngreso"] === 'Registrado') {
-
           this.paciente.documento = resp["documento"];
           this.paciente.id = resp["consecutivo"];
           this.paciente.nombre = resp["paciente"];
           this.paciente.fechaIngreso = resp["fechaIngreso"];
           this.paciente.estadoIngreso = resp["estadoIngreso"];
-
           this.buscando = false;
-          console.log("Patient found correctly");
           this.mostrarTabla = true;
-
         } else {
 
           Swal.fire({
             icon: 'error',
             title: `El paciente seleccionado se encuentra en un estado Incorrecto (ESTADO: ${resp["estadoIngreso"]} ) `,
-
             confirmButtonColor: '#3085d6',
-
             confirmButtonText: 'Aceptar'
           })
           this.buscando = false;
-
-
         }
       }, 2000);
-
-      /*  } */
-
-
     }, (err) => {
-
       this.mostrarTabla = false;
       this.buscando = false;
       this.noData = true;
-
-
     });
+  }
 
+  findPacientByDocumentPrueba(documento: string) {
 
+    this.buscando = true;
+    this.noData = false;
+    this.mostrarTabla = false;
+    this.pacientesService.findPacientByDocument(documento).subscribe(resp => {
 
+      setTimeout(() => {
+
+        if (resp["estadoIngreso"] === 'Registrado') {
+          this.paciente.documento = resp["documento"];
+          this.paciente.id = resp["consecutivo"];
+          this.paciente.nombre = resp["paciente"];
+          this.paciente.fechaIngreso = resp["fechaIngreso"];
+          this.paciente.estadoIngreso = resp["estadoIngreso"];
+          this.buscando = false;
+          this.mostrarTabla = true;
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: `El paciente seleccionado se encuentra en un estado Incorrecto (ESTADO: ${resp["estadoIngreso"]} ) `,
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Aceptar'
+          })
+          this.buscando = false;
+        }
+      }, 2000);
+    }, (err) => {
+      this.buscando = false;
+      this.noData = true;
+    });
   }
 
   findPacientByDocument(documento: string) {
-
-
     this.buscando = true;
     this.noData = false;
     this.mostrarTabla = false;
 
     this.pacientesService.findPacientIngresoByDocument(documento).subscribe(resp => {
 
-
-
-
-
       setTimeout(() => {
 
-
-
-
         if (resp["estadoIngreso"] === 'Registrado') {
-
           this.paciente.documento = resp["documento"];
           this.paciente.id = resp["consecutivo"];
           this.paciente.nombre = resp["paciente"];
           this.paciente.fechaIngreso = resp["fechaIngreso"];
           this.paciente.estadoIngreso = resp["estadoIngreso"];
           this.buscando = false;
-          console.log("Patient found correctly");
           this.mostrarTabla = true;
         } else {
 
           Swal.fire({
             icon: 'error',
             title: `El paciente seleccionado se encuentra en un estado Incorrecto (ESTADO: ${resp["estadoIngreso"]} ) `,
-
             confirmButtonColor: '#3085d6',
-
             confirmButtonText: 'Aceptar'
           })
           this.buscando = false;
         }
-
-
-
       }, 2000);
-
     }, (err) => {
-
-
       this.buscando = false;
       this.noData = true;
-
-
     });
-
-
-
   }
 
   seleccionarPaciente(documento: string, id: string) {
@@ -218,28 +175,17 @@ export class PacientesComponent {
         console.log("Patient selected correctly");
       }
     })
-
-
   }
-
-
 
   cancelarpaciente() {
-
     this.pacienteSeleccionado = false;
-
-
   }
-
 
   public optionSelectedName(valor: string) {
 
-
     if (valor === "nombre") {
-
       this.valorName = true;
     } else {
-
       this.valorName = false;
     }
 
@@ -247,32 +193,21 @@ export class PacientesComponent {
 
   public optionSelectedDocument(valor: string) {
 
-
     if (valor === "identificacion") {
-
       this.valorDocumento = true;
     } else {
-
       this.valorDocumento = false;
     }
-
   }
 
   public optionSelectedIngreso(valor: string) {
 
-
     if (valor === "ingreso") {
-
       this.valorIngreso = true;
     } else {
-
       this.valorIngreso = false;
     }
 
   }
-
-
-
-
 
 }

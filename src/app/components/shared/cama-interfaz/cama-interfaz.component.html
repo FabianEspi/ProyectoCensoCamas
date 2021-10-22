@@ -46,12 +46,12 @@
         <div class="container mt-5 tarjetas_traslado">
             <div *ngFor="let camas of camitas" class="item text-center" (click)="seleccionarCama(camas)">
                 <div class="row">
-                    <div class="col">
+                    <div class="col tarjeta-imagen">
                         <img [src]="camas.URL" alt="Estado">
                     </div>
-                    <div class="col mt-2">
-                        <h6>Codigo:{{camas.codigo}}</h6>
-                        <h6> estado:{{camas.estado}}</h6>
+                    <div class="col mt-2 tarjetas-cuerpo">
+                        <h6>{{camas.codigo}}</h6>
+                        <h6>{{camas.documento}}</h6>
                     </div>
                 </div>
             </div>

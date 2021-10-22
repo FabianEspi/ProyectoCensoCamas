@@ -1,26 +1,18 @@
+<!--    Filtro Pacientes a liberar -->
+
 <div class="wrapper">
-
   <h3 *ngIf="!pacienteSeleccionado"><u>SELECCIÓN DE PACIENTES</u></h3>
-
   <p class="mt-3" style="color: black;" *ngIf="!pacienteSeleccionado"> Por favor Ingrese Los Filtros de Busqueda para
     seleccionar el paciente</p>
 
-
   <div class="filter" *ngIf="!pacienteSeleccionado">
-
     <h6 class="mt-3"> Filtro de busqueda:</h6>
     <select #opcion class="form-select " aria-label=".form-select-lg example" (click)="optionSelectedName(opcion.value)"
       (click)="optionSelectedDocument(opcion.value)" (click)="optionSelectedIngreso(opcion.value)">
-
-
       <option value="identificacion">No. Identificacion</option>
       <option value="ingreso">No. Ingreso</option>
       <!-- <option value="nombre">Nombre</option> -->
-
     </select>
-
-
-
     <!-- <div class="filter-label mt-5" *ngIf="valorName">
 
           <h6>Por favor Ingrese su informacion
@@ -43,60 +35,29 @@
       <input #documento type="number" (keyup.enter)="findPacientByDocument(documento.value)" class="form-control"
         placeholder="Buscar Paciente por No de Identificacion">
     </div>
-
-
-
   </div>
 
+  <!-- Mensajes Informativos -->
 
   <div class="container" *ngIf="!buscando && noData">
-
     <div class="alert alert-warning text-center mt-3 ">
-
       <h4 class="alert-heading ">No se encontraron registros</h4>
-
-      <p>
-
-        <i class="fa fa-exclamation fa-2x mt-3 "></i>
-      </p>
-
-
-
-
+      <p><i class="fa fa-exclamation fa-2x mt-3 "></i></p>
     </div>
-
   </div>
-
 
   <div class="container mt-5" *ngIf="buscando">
-
     <div class="alert alert-info text-center mt-0 ">
-
-
-
       <h4 class="alert-heading ">Cargando</h4>
-
-      <p>
-
-        <i class="fa fa-sync-alt fa-spin fa-2x "></i>
-      </p>
-
-      <p class="mb-0 ">
-
-        Espere por Favor
-
-      </p>
-
-
+      <p><i class="fa fa-sync-alt fa-spin fa-2x "></i></p>
+      <p class="mb-0 ">Espere por Favor</p>
     </div>
-
   </div>
 
-
+  <!-- Tablas informativas de pacientes Buscados -->
 
   <table class="table mt-5 text-center" *ngIf="mostrarTabla">
     <thead>
-
       <tr>
         <th scope="col ">No. Cedula</th>
         <th scope="col ">No. Ingreso</th>
@@ -118,28 +79,16 @@
               class="fas fa-user-check icon-button"></i> </a>
         </td>
       </tr>
-
-
-
     </tbody>
-
   </table>
-
-
 
   <!-- PACIENTE SELECCIONADO -->
 
-
-
-
   <div class="mt-5 tabla-seleccionado" *ngIf="!mostrarTabla && !buscando && pacienteSeleccionado">
     <h3><u>PACIENTE SELECCIONADO:</u> <i class="fas fa-user-check"></i></h3>
-
     <p class="mt-4" style="color: black;"> Paciente Seleccionado correctamente con la siguiente informacion:</p>
-
     <table class="table mt-3 text-center">
       <thead>
-
         <tr>
           <th scope="col ">No. Cedula</th>
           <th scope="col ">No. Ingreso</th>
@@ -165,8 +114,7 @@
 
     </table>
 
-
-
+    <!-- Boton de Liberar Cama -->
 
     <div class="liberar mt-3" (click)="liberarPaciente(paciente.id)">
 
