@@ -11,14 +11,8 @@
       (click)="optionSelectedDocument(opcion.value)" (click)="optionSelectedIngreso(opcion.value)">
       <option value="identificacion">No. Identificacion</option>
       <option value="ingreso">No. Ingreso</option>
-      <!-- <option value="nombre">Nombre</option> -->
+      <option value="nombre">Nombre</option>
     </select>
-    <!-- <div class="filter-label mt-5" *ngIf="valorName">
-
-          <h6>Por favor Ingrese su informacion
-          </h6>
-          <input #termino type="text" (keyup.enter)="findPacientByName(termino.value)" class="form-control" placeholder="Buscar Paciente por Nombre">
-      </div> -->
 
     <div class="filter-label mt-3 " *ngIf="valorIngreso">
 
@@ -34,6 +28,13 @@
       </h6>
       <input #documento type="number" (keyup.enter)="findPacientByDocument(documento.value)" class="form-control"
         placeholder="Buscar Paciente por No de Identificacion">
+    </div>
+
+    <div class="filter-label mt-3 " *ngIf="valorName">
+      <h6>Por favor Ingrese su informacion
+      </h6>
+      <input #name type="text" (keyup.enter)="findPacientByName(name.value)" class="form-control"
+        placeholder="Buscar Paciente por Nombre">
     </div>
   </div>
 
@@ -54,33 +55,70 @@
     </div>
   </div>
 
-  <!-- Tablas informativas de pacientes Buscados -->
+  <!-- Tablas informativas de pacientes Buscados ingreso-->
 
-  <table class="table mt-5 text-center" *ngIf="mostrarTabla">
-    <thead>
-      <tr>
-        <th scope="col ">No. Cedula</th>
-        <th scope="col ">No. Ingreso</th>
-        <th scope="col ">Nombres</th>
-        <th scope="col ">Ultimo Ingreso</th>
-        <th scope="col ">EstadoIngreso</th>
-        <th scope="col ">Accion</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{paciente.documento}}</td>
-        <td>{{paciente.id}}</td>
-        <td>{{paciente.nombre}}</td>
-        <td>{{paciente.fechaIngreso}}</td>
-        <td>{{paciente.estadoIngreso}}</td>
-        <td>
-          <a class="button" (click)="seleccionarPaciente(paciente.documento,paciente.id)"> <i
-              class="fas fa-user-check icon-button"></i> </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div *ngIf="mostrarTabla">
+    <table class="table mt-5 text-center">
+      <thead>
+        <tr>
+          <th scope="col ">No. Cedula</th>
+          <th scope="col ">No. Ingreso</th>
+          <th scope="col ">Nombres</th>
+          <th scope="col ">Ultimo Ingreso</th>
+          <th scope="col ">EstadoIngreso</th>
+          <th scope="col ">Accion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{paciente.documento}}</td>
+          <td>{{paciente.id}}</td>
+          <td>{{paciente.nombre}}</td>
+          <td>{{paciente.fechaIngreso}}</td>
+          <td>{{paciente.estadoIngreso}}</td>
+          <td>
+            <a class="button"
+              (click)="seleccionarPaciente(paciente.nombre,paciente.documento,paciente.id,paciente.fechaIngreso,paciente.estadoIngreso)">
+              <i class="fas fa-user-check icon-button"></i> </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Tablas informativas de pacientes Buscados Documento, Nombre-->
+  <div *ngIf="mostrarTablaDocumento">
+    <table class="table mt-5 text-center">
+
+      <thead>
+        <tr>
+          <th scope="col ">No. Cedula</th>
+          <th scope="col ">No. Ingreso</th>
+          <th scope="col ">Nombres</th>
+          <th scope="col ">Ultimo Ingreso</th>
+          <th scope="col ">EstadoIngreso</th>
+          <th scope="col ">Accion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pruebita of prueba">
+          <td>{{pruebita.documento}}</td>
+          <td>{{pruebita.consecutivo}}</td>
+          <td>{{pruebita.paciente}}</td>
+          <td>{{pruebita.fechaIngreso}}</td>
+          <td>{{pruebita.estado}}</td>
+
+          <td>
+            <a class="button"
+              (click)="seleccionarPaciente(pruebita.paciente,pruebita.documento,pruebita.consecutivo,pruebita.fechaIngreso,pruebita.estado)">
+              <i class="fas fa-user-check icon-button"></i> </a>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
 
   <!-- PACIENTE SELECCIONADO -->
 
@@ -116,7 +154,7 @@
 
     <!-- Boton de Liberar Cama -->
 
-    <div class="liberar mt-3" (click)="liberarPaciente(paciente.id)">
+    <div class="liberar mt-3" (click)="liberarPaciente(paciente.id, paciente.nombre,paciente.documento,paciente.cama)">
 
       <a>
         <div>
