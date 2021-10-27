@@ -40,7 +40,7 @@ export class PacientesEgresoComponent {
     Swal.fire({
       icon: 'warning',
       title: '¿Esta Seguro de Liberar este paciente?',
-      html: '<b>PACIENTE: </b>' + nombre + '<br><b>INGRESO:</b> ' + id + '<b> DOCUMENTO:</b> ' + documento + '<br><b>CAMA:</b> ' + cama,
+      html: '<b>PACIENTE: </b>' + nombre + '<br><b>INGRESO:</b> ' + id + '<b> DOCUMENTO:</b> ' + documento,
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
@@ -93,7 +93,7 @@ export class PacientesEgresoComponent {
 
       this.prueba = [];
       this.prueba = resp;
-      console.log(resp);
+      console.log(resp[0].cama);
 
       setTimeout(() => {
 
@@ -121,11 +121,6 @@ export class PacientesEgresoComponent {
       this.buscando = false;
       this.noData = true;
     });
-
-
-
-
-
   }
 
   findPacientByIngreso(ingreso: string) {
@@ -167,7 +162,6 @@ export class PacientesEgresoComponent {
       this.noData = true;
     });
   }
-
 
   findPacientByDocument(documento: string) {
     this.buscando = true;
@@ -230,6 +224,8 @@ export class PacientesEgresoComponent {
         this.paciente.estadoIngreso = estadoIngreso;
         this.paciente.cama = cama;
 
+        console.log(this.paciente.cama);
+
         Swal.fire(
           'Correcto',
           'El paciente ha sido seleccionado',
@@ -268,16 +264,11 @@ export class PacientesEgresoComponent {
   }
 
   public optionSelectedDocument(valor: string) {
-
-
     if (valor === "identificacion") {
-
       this.valorDocumento = true;
     } else {
-
       this.valorDocumento = false;
     }
-
   }
 
   public optionSelectedIngreso(valor: string) {

@@ -66,7 +66,9 @@
                     <th scope="col ">Nombres</th>
                     <th scope="col ">Ultimo Ingreso</th>
                     <th scope="col ">EstadoIngreso</th>
+                    <th scope="col"> Cama</th>
                     <th scope="col ">Accion</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -76,6 +78,7 @@
                     <td>{{paciente.nombre}}</td>
                     <td>{{paciente.fechaIngreso}}</td>
                     <td>{{paciente.estadoIngreso}}</td>
+                    <td>{{paciente.cama}}</td>
                     <td>
                         <a class="button"
                             (click)="seleccionarPaciente(paciente.nombre,paciente.documento,paciente.id,paciente.fechaIngreso,paciente.estadoIngreso)">

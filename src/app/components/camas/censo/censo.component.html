@@ -46,15 +46,12 @@
             </div>
 
             <div class="col ">
-
                 <h6 class=" "> Subgrupo:*</h6>
-
                 <select #subgrupos class="form-select " aria-label=".form-select-lg example"
                     (click)="findSubgrupoWithGrupo(grupo.value)">
                     <option selected> Escoja SubGrupo ...</option>
                     <option [value]=subgrupos *ngFor="let subgrupos of subgrupitos">{{subgrupos}} </option>
                 </select>
-
             </div>
 
             <div class="col ">
@@ -62,14 +59,24 @@
                 <select #tipos class="form-select " aria-label=".form-select-lg example "
                     (click)="findTiposCamasWithGrupoSubgrupo(grupo.value, subgrupos.value)">
                     <option value="defecto" selected> Escoja Tipo(Opcional) ...</option>
-                    <option *ngFor="let tipo of tipito">{{tipo}} </option>
+                    <option [value]=tipo *ngFor="let tipo of tipito">{{tipo}} </option>
+                </select>
+            </div>
+
+            <div class="col ">
+                <h6 class=" "> Estado:</h6>
+                <select #estado class="form-select " aria-label=".form-select-lg example ">
+                    <option value="defecto" selected> Escoja estado(Opcional) ...</option>
+                    <option [value]="1"> DESOCUPADA </option>
+                    <option [value]="2"> OCUPADA </option>
+                    <option [value]="3"> BLOQUEADA </option>
                 </select>
             </div>
         </div>
 
         <div class="boton-buscar mt-3">
 
-            <a (click)="findCamaGrupoSubgrupoTipo(grupo.value,subgrupos.value,tipos.value)">
+            <a (click)="findCamaFiltros(grupo.value,subgrupos.value,tipos.value,estado.value)">
 
                 <div>
                     <i class="fas fa-search"></i> Buscar
@@ -81,7 +88,7 @@
 
         <!-- Interfaz de Camas y Generacion de PDFs -->
 
-        <div *ngIf="!cargando">
+        <div *ngIf="!cargando && !tablaCargada">
             <div class="container mt-5 tarjetas_traslado">
                 <div *ngFor="let camas of camitas" class="item text-center" (click)="seleccionarCama(camas)">
                     <div class="row">
@@ -89,8 +96,8 @@
                             <img [src]="camas.URL" alt="Estado">
                         </div>
                         <div class="col mt-2">
-                            <h6>Codigo:{{camas.codigo}}</h6>
-                            <h6> estado:{{camas.estado}}</h6>
+                            <h6><b>{{camas.codigo}}</b></h6>
+                            <h6>{{camas.paciente}}</h6>
                         </div>
                     </div>
                 </div>
@@ -98,12 +105,53 @@
         </div>
 
         <div class="boton-buscar mt-3">
+            <a (click)="findCamaFiltrosTabla(grupo.value, subgrupos.value, tipos.value, estado.value)"
+                *ngIf="cargado && !cargando">
+                <div>
+                    <i class="fas fa-file-pdf"></i> Tabla
+                </div>
+            </a>
+
             <a (click)="buildTableBody(grupo.value,subgrupos.value,tipos.value)" *ngIf="cargado && !cargando">
                 <div>
                     <i class="fas fa-file-pdf"></i> PDF
                 </div>
             </a>
         </div>
+
+
+        <!-- Tabla Resumen -->
+
+        <div *ngIf="tablaCargada">
+            <table class="table mt-5 text-center">
+
+                <thead>
+                    <tr>
+                        <th scope="col ">CODIGO</th>
+                        <th scope="col ">ESTADO</th>
+                        <th scope="col ">PACIENTE</th>
+                        <th scope="col ">DOCUMENTO</th>
+                        <th scope="col ">GRUPO</th>
+                        <th scope="col ">SUBGRUPO</th>
+                        <th scope="col ">TIPO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let camas of camitas">
+                        <td>{{camas.codigo}}</td>
+                        <td>{{camas.estado}}</td>
+                        <td>{{camas.paciente}}</td>
+                        <td>{{camas.documento}}</td>
+                        <td>{{camas.grupo}}</td>
+                        <td>{{camas.subgrupo}}</td>
+                        <td>{{camas.tipo}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
 
         <!-- Mensajes informativos -->
 

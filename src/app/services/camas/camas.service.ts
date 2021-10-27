@@ -14,6 +14,12 @@ export class CamasService {
 
   constructor(private http: HttpClient) { }
 
+  findCamaGrupoSubgrupoTipoEstado(grupo: string, subgrupo: string, tipo: string, estado: string) {
+
+    return this.http.get(`${this.urlCamas}/find/grupo=${grupo}/subgrupo=${subgrupo}/tipo=${tipo}/estado=${estado}`);
+
+  }
+
   findCamaGrupoSubgrupoTipo(grupo: string, subgrupo: string, tipo: string) {
 
     return this.http.get(`${this.urlCamas}/find/grupo=${grupo}/subgrupo=${subgrupo}/tipo=${tipo}`);

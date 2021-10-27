@@ -26,14 +26,25 @@
             <select #tipos class="form-select " aria-label=".form-select-lg example "
                 (click)="findTiposCamasWithGrupoSubgrupo(grupo.value, subgrupos.value)">
                 <option value="defecto" selected> Escoja Tipo(Opcional) ...</option>
-                <option *ngFor="let tipo of tipito">{{tipo}} </option>
+                <option [value]=tipo *ngFor="let tipo of tipito">{{tipo}} </option>
+            </select>
+        </div>
+        <div class="col ">
+            <h6 class=" "> Estado:</h6>
+            <select #estado class="form-select " aria-label=".form-select-lg example ">
+                <option value="defecto" selected> Escoja estado(Opcional) ...</option>
+                <option [value]="1"> DESOCUPADA </option>
+                <option [value]="2"> OCUPADA </option>
+                <option [value]="3"> BLOQUEADA </option>
             </select>
         </div>
     </div>
 
+    <!--   findTiposCamasWithGrupoSubgrupo(grupo: string, subgrupo: string)
+    findCamaGrupoSubgrupoTipoEstado(grupo.value,subgrupos.value,tipos.value,estado.value) -->
 
     <div class="boton-buscar mt-3">
-        <a (click)="findCamaGrupoSubgrupoTipo(grupo.value,subgrupos.value,tipos.value)">
+        <a (click)="findCamaFiltros(grupo.value,subgrupos.value,tipos.value,estado.value)">
             <div>
                 <i class="fas fa-search"></i> Buscar
             </div>
@@ -50,8 +61,8 @@
                         <img [src]="camas.URL" alt="Estado">
                     </div>
                     <div class="col mt-2 tarjetas-cuerpo">
-                        <h6>{{camas.codigo}}</h6>
-                        <h6>{{camas.documento}}</h6>
+                        <h6><b>{{camas.codigo}}</b></h6>
+                        <h6>{{camas.paciente}}</h6>
                     </div>
                 </div>
             </div>

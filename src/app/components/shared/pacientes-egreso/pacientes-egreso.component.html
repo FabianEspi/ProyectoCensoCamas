@@ -78,7 +78,7 @@
           <td>{{paciente.estadoIngreso}}</td>
           <td>
             <a class="button"
-              (click)="seleccionarPaciente(paciente.nombre,paciente.documento,paciente.id,paciente.fechaIngreso,paciente.estadoIngreso)">
+              (click)="seleccionarPaciente(paciente.nombre,paciente.documento,paciente.id,paciente.fechaIngreso,paciente.estadoIngreso,paciente.cama)">
               <i class="fas fa-user-check icon-button"></i> </a>
           </td>
         </tr>
@@ -97,6 +97,7 @@
           <th scope="col ">Nombres</th>
           <th scope="col ">Ultimo Ingreso</th>
           <th scope="col ">EstadoIngreso</th>
+          <th scope="col ">Cama</th>
           <th scope="col ">Accion</th>
         </tr>
       </thead>
@@ -107,7 +108,7 @@
           <td>{{pruebita.paciente}}</td>
           <td>{{pruebita.fechaIngreso}}</td>
           <td>{{pruebita.estado}}</td>
-
+          <td>{{pruebita.cama}}</td>
           <td>
             <a class="button"
               (click)="seleccionarPaciente(pruebita.paciente,pruebita.documento,pruebita.consecutivo,pruebita.fechaIngreso,pruebita.estado)">
@@ -143,6 +144,7 @@
           <td>{{paciente.nombre}} </td>
           <td>{{paciente.fechaIngreso}}</td>
           <td>{{paciente.estadoIngreso}}</td>
+
           <td>
             <a style="cursor: pointer;" class="button" (click)="cancelarpaciente()"> <i class="fas fa-times"></i> </a>
           </td>
@@ -164,19 +166,6 @@
       </a>
 
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   </div>

@@ -44,12 +44,223 @@ export class CamaInterfazComponent {
   constructor(private camasService: CamasService, private router: Router) { }
 
 
-  findCamaGrupoSubgrupoTipo(grupo: string, subgrupo: string, tipo?: string) {
+
+  findCamaFiltros(grupo: string, subgrupo: string, tipo: string, estado: string) {
+
+
+    if (tipo === "defecto" && estado === "defecto") {
+
+      this.findCamaGrupoSubgrupo(grupo, subgrupo);
+
+    }
+    if (estado === "defecto") {
+
+
+      this.findCamaGrupoSubgrupoTipo(grupo, subgrupo, tipo);
+    }
+
+    if (grupo != "defecto" && subgrupo != "defecto" && tipo != "defecto" && estado != "defecto") {
+
+      this.findCamaGrupoSubgrupoTipoEstado(grupo, subgrupo, tipo, estado);
+
+    }
+  }
+
+
+
+
+
+  findCamaGrupoSubgrupo(grupo: string, subgrupo: string) {
+
+    this.cargando = true;
+    this.camitas = [];
+
+    this.camasService.findCamaGrupoSubgrupo(grupo, subgrupo).subscribe(resp => {
+
+      console.log(resp);
+      this.camas = resp;
+      let valorPrueba = Object.keys(this.camas).length;
+
+      if (valorPrueba === 0) {
+        setTimeout(() => {
+          this.cargando = false;
+          this.nodata = true;
+        }, 1000);
+      }
+
+      if (this.tipoOnchange === subgrupo) {
+        setTimeout(() => {
+          for (let index = 0; index < valorPrueba; index++) {
+            this.camitas.push(this.camas[index]);
+            this.estados.push(this.camas[index].estadoCama);
+            let source;
+            switch (this.camas[index]["estado"]) {
+              case "Bloqueada":
+                source = { URL: '../../../../assets/img/bloqueada.png' }
+                break;
+
+              case "Ocupada":
+                source = { URL: '../../../../assets/img/ocupada.png' }
+                break;
+
+              case "Desocupada":
+                source = { URL: '../../../../assets/img/disponible.png' }
+                break;
+
+              default:
+                break;
+            }
+            Object.assign(this.camitas[index], source)
+            this.cargando = false;
+            this.nodata = false;
+          }
+        }, 1000);
+        this.subgrupoOnchange = subgrupo;
+
+      }
+
+      if (this.camitas.length === 0) {
+
+        setTimeout(() => {
+          for (let index = 0; index < valorPrueba; index++) {
+            this.camitas.push(this.camas[index]);
+            this.estados.push(this.camas[index].estadoCama);
+            let source;
+            switch (this.camas[index]["estado"]) {
+              case "Bloqueada":
+                source = { URL: '../../../../assets/img/bloqueada.png' }
+                break;
+
+              case "Ocupada":
+                source = { URL: '../../../../assets/img/ocupada.png' }
+                break;
+
+              case "Desocupada":
+                source = { URL: '../../../../assets/img/disponible.png' }
+                break;
+
+              default:
+                break;
+            }
+            Object.assign(this.camitas[index], source)
+            this.cargando = false;
+            this.nodata = false;
+          }
+
+          this.subgrupoOnchange = subgrupo;
+        }, 1000);
+
+        this.subgrupoOnchange = subgrupo;
+
+      }
+
+
+
+    });
+
+
+
+
+  }
+
+
+  findCamaGrupoSubgrupoTipoEstado(grupo: string, subgrupo: string, tipo: string, estado: string) {
+
+    this.cargando = true;
+    this.camitas = [];
+
+    this.camasService.findCamaGrupoSubgrupoTipoEstado(grupo, subgrupo, tipo, estado).subscribe(resp => {
+      console.log(resp);
+      this.camas = resp;
+      let valorPrueba = Object.keys(this.camas).length;
+
+      if (valorPrueba === 0 && tipo != "defecto") {
+        setTimeout(() => {
+          this.cargando = false;
+          this.nodata = true;
+        }, 1000);
+      }
+
+      if (this.tipoOnchange === subgrupo && tipo != "defecto") {
+        setTimeout(() => {
+          for (let index = 0; index < valorPrueba; index++) {
+            this.camitas.push(this.camas[index]);
+            this.estados.push(this.camas[index].estadoCama);
+            let source;
+            switch (this.camas[index]["estado"]) {
+              case "Bloqueada":
+                source = { URL: '../../../../assets/img/bloqueada.png' }
+                break;
+
+              case "Ocupada":
+                source = { URL: '../../../../assets/img/ocupada.png' }
+                break;
+
+              case "Desocupada":
+                source = { URL: '../../../../assets/img/disponible.png' }
+                break;
+
+              default:
+                break;
+            }
+            Object.assign(this.camitas[index], source)
+            this.cargando = false;
+            this.nodata = false;
+          }
+        }, 1000);
+        this.tipoOnchange = tipo;
+        this.subgrupoOnchange = subgrupo;
+
+      }
+
+      if (this.camitas.length === 0 && tipo != "defecto") {
+
+        setTimeout(() => {
+          for (let index = 0; index < valorPrueba; index++) {
+            this.camitas.push(this.camas[index]);
+            this.estados.push(this.camas[index].estadoCama);
+            let source;
+            switch (this.camas[index]["estado"]) {
+              case "Bloqueada":
+                source = { URL: '../../../../assets/img/bloqueada.png' }
+                break;
+
+              case "Ocupada":
+                source = { URL: '../../../../assets/img/ocupada.png' }
+                break;
+
+              case "Desocupada":
+                source = { URL: '../../../../assets/img/disponible.png' }
+                break;
+
+              default:
+                break;
+            }
+            Object.assign(this.camitas[index], source)
+            this.cargando = false;
+            this.nodata = false;
+          }
+          this.tipoOnchange = tipo;
+          this.subgrupoOnchange = subgrupo;
+        }, 1000);
+        this.tipoOnchange = tipo;
+        this.subgrupoOnchange = subgrupo;
+
+      }
+
+
+
+    });
+
+
+  }
+
+
+  findCamaGrupoSubgrupoTipo(grupo: string, subgrupo: string, tipo: string) {
 
     this.cargando = true;
     this.camitas = [];
     this.camasService.findCamaGrupoSubgrupoTipo(grupo, subgrupo, tipo).subscribe(resp => {
-      console.log(this.paciente["id"]);
       this.camas = resp;
       let valorPrueba = Object.keys(this.camas).length;
 
