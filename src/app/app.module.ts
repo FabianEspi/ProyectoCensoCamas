@@ -27,6 +27,11 @@ import { CamasComponent } from './components/camas/camas/camas.component';
 import { CamaInterfazComponent } from './components/shared/cama-interfaz/cama-interfaz.component';
 import { PacientesEgresoComponent } from './components/shared/pacientes-egreso/pacientes-egreso.component';
 
+import { RegistroComponent } from './components/auth/registro/registro.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { interceptorProvider } from './interceptors/prod-interceptor.service';
+
 
 
 
@@ -51,7 +56,10 @@ import { PacientesEgresoComponent } from './components/shared/pacientes-egreso/p
     NavbarLoginComponent,
     CamasComponent,
     CamaInterfazComponent,
-    PacientesEgresoComponent
+    PacientesEgresoComponent,
+    LoginComponent,
+    RegistroComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +71,7 @@ import { PacientesEgresoComponent } from './components/shared/pacientes-egreso/p
     ReactiveFormsModule
 
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

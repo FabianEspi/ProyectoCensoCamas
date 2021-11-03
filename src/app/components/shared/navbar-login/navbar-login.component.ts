@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth/auth.service';
+import { TokenService } from '../../../services/token.service';
 
 @Component({
   selector: 'app-navbar-login',
@@ -8,10 +10,14 @@ import { AuthService } from '../../../services/auth/auth.service';
 })
 export class NavbarLoginComponent {
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private tokenService: TokenService, private router: Router) { }
 
-  logout() {
-    this.auth.logout();
+
+
+  logout(): void {
+    this.tokenService.logOut();
+    this.router.navigateByUrl("/inicio/home")
+
   }
 
 }
