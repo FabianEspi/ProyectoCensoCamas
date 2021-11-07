@@ -34,6 +34,7 @@
         </button>
       </div>
     </form>
+    <a class="btn btn-link link-ingreso" [routerLink]="['/registro']"> Registrarse </a>
     <span *ngIf="loginForm.submitted && isLoginFail" class="text-danger animate__animated animate__fadeIn">
       {{errMsj}}</span>
 

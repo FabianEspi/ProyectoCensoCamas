@@ -1,8 +1,11 @@
 export class NuevoUsuario {
 
   nombre: string;
-  nombreusuario: string;
-  email: string;
-  password: string;
-  authorities: string[];
+  usuario: string;
+  clave: string;
+  constructor(nombre: string, usuario: string, clave: string) {
+    nombre = this.nombre;
+    usuario = this.usuario;
+    clave = this.clave;
+  }
 }

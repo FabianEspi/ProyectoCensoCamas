@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenService } from 'src/app/services/token.service';
-import { LoginUsuario } from '../../models/login-usuario';
+import Swal from 'sweetalert2';
+import { NuevoUsuario } from '../../models/nuevo-usuario';
 
 @Component({
   selector: 'app-registro',
@@ -10,13 +11,14 @@ import { LoginUsuario } from '../../models/login-usuario';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
+
   isLogged = false;
-  isLoginFail = false;
-  loginUsuario: LoginUsuario;
+  nuevoUsuario: NuevoUsuario;
   usuario: string;
   clave: string;
   nombre: string;
-  rol: string
+  email: string;
+  rol: string;
   roles: string[] = [];
   errMsj: string;
 
@@ -31,33 +33,48 @@ export class RegistroComponent implements OnInit {
     if (this.tokenService.getToken()) {
 
       this.isLogged = true;
-      this.isLoginFail = false;
-      this.roles = this.tokenService.getAuthorities();
+
     }
   }
 
-  onLogin(): void {
+  onRegister(): void {
 
-    this.loginUsuario = new LoginUsuario(this.usuario, this.clave);
-    console.log("funciono");
-    /* this.router.navigateByUrl("/camas/inicio") */
-    this.authService.login(this.loginUsuario).subscribe(
+    this.nuevoUsuario = new NuevoUsuario(this.nombre, this.usuario, this.clave);
+    console.log("entro");
+
+
+    Swal.fire({
+      title: 'Cuenta Creada Correctamente',
+      icon: 'success',
+
+      confirmButtonColor: '#264285',
+      confirmButtonText: 'Aceptar'
+    })
+    this.router.navigateByUrl("/camas/inicio");
+    this.authService.nuevo(this.nuevoUsuario).subscribe(
       data => {
+        console.log(data);
 
-        this.isLogged = true;
-        this.isLoginFail = false;
-        this.tokenService.setToken(data.token);
-        this.tokenService.setUsername(data.nombreUsuario);
-        this.tokenService.setAuthorities(data.authorities);
-        this.roles = data.authorities;
-        this.router.navigateByUrl("/camas/inicio")
+        Swal.fire({
+          title: 'Cuenta Creada Correctamente',
+          icon: 'success',
 
+          confirmButtonColor: '#264285',
+          confirmButtonText: 'Aceptar'
+        })
+        this.router.navigate(["/login"]);
 
       }
     ),
       err => {
-        this.isLogged = false;
-        this.isLoginFail = true;
+        Swal.fire({
+          title: 'Error al crear la cuenta',
+          icon: 'error',
+
+          confirmButtonColor: '#264285',
+          confirmButtonText: 'Aceptar'
+        })
+
         this.errMsj = err.error.mensaje;
         console.log(this.errMsj);
       }

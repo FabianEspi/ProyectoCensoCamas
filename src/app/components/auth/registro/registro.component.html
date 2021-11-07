@@ -7,26 +7,27 @@
   <div class="login-box animate__animated animate__fadeIn ">
     <img class="avatar" src="../../../../assets/img/icon.png" alt="Logo">
     <h1>Crear Usuario</h1>
-    <form #loginForm="ngForm" (ngSubmit)="onLogin()" novalidate class="login100-form validate-form flex-sb flex-w">
+    <form #registerForm="ngForm" (ngSubmit)="onRegister()" novalidate
+      class="login100-form validate-form flex-sb flex-w">
       <label for="username">Usuario</label>
 
       <div class="wrap-input100 m-b-16 mt-1">
-        <input class="input100" type="text" required name="email" [(ngModel)]="usuario"
+        <input class="input100" type="text" required name="usuario" [(ngModel)]="usuario"
           placeholder="Ingrese usuario aqui">
       </div>
 
-      <span *ngIf="loginForm.submitted && loginForm.controls['email'].errors"
+      <span *ngIf="registerForm.submitted && registerForm.controls['usuario'].errors"
         class="text-danger animate__animated animate__fadeIn"> El usuario es obligatorio</span>
 
       <label for="username">Nombre</label>
 
       <div class="wrap-input100 m-b-16 mt-1">
-        <input class="input100" type="text" required name="email" [(ngModel)]="nombre"
-          placeholder="Ingrese usuario aqui">
+        <input class="input100" type="text" required name="nombre" [(ngModel)]="nombre"
+          placeholder="Ingrese nombre aqui">
       </div>
 
-      <span *ngIf="loginForm.submitted && loginForm.controls['email'].errors"
-        class="text-danger animate__animated animate__fadeIn"> El usuario es obligatorio</span>
+      <span *ngIf="registerForm.submitted && registerForm.controls['nombre'].errors"
+        class="text-danger animate__animated animate__fadeIn"> El Nombre es obligatorio</span>
 
       <label for="password" class="mt-2"> Contraseña</label>
 
@@ -35,31 +36,18 @@
           placeholder="Ingrese Contraseña aqui">
       </div>
 
-      <span *ngIf="loginForm.submitted && loginForm.controls['password'].errors"
+      <span *ngIf="registerForm.submitted && registerForm.controls['password'].errors"
         class="text-danger animate__animated animate__fadeIn"> La contraseña es obligatoria</span>
 
-      <label for="username">Rol</label>
-
-      <div class="wrap-input100 m-b-16 mt-1">
-        <select #opcion class="form-select " aria-label=".form-select-lg example" [(ngModel)]="rol">
-          <option value="user">Usuario</option>
-          <option value="superadmin">Administrador</option>
-
-        </select>
-      </div>
-
-      <span *ngIf="loginForm.submitted && loginForm.controls['email'].errors"
-        class="text-danger animate__animated animate__fadeIn"> El usuario es obligatorio</span>
 
       <br>
       <div class="container-login100-form-btn mt-1">
-        <button class="login100-form-btn" type="submit" [disabled]="!loginForm.valid">
-          Ingresar
+        <button class="login100-form-btn" type="submit" [disabled]="!registerForm.valid">
+          Crear Cuenta
         </button>
       </div>
     </form>
-    <span *ngIf="loginForm.submitted && isLoginFail" class="text-danger animate__animated animate__fadeIn">
-      {{errMsj}}</span>
+
 
 
   </div>

@@ -75,6 +75,12 @@ a {
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
+  align-items: center;
+  align-content: center;
+  color: #000046;
+  margin-left: 80px;
+  font-size: large;
+  text-decoration: underline;
 }
 
 a:focus {
